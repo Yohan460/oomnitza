@@ -1,0 +1,3412 @@
+openapi: 3.0.3
+info:
+  description: "## Date type fields\nAPI endpoints expected date in UTC±0:00 timezone.\
+    \ Timezones in ISO8601 format will be ignored. API endpoints support date in two\
+    \ formats (one of): ISO8601 ('YYYY-MM-DDTHH:mm:SSZ') or Unix Timestamp (seconds\
+    \ count since January 1st, 1970 at UTC).\n\n## Dropdown fields\nSome fields are\
+    \ configured as dropdown fields with a dedicated list of values within Oomnitza.\
+    \ You can review the list of available dropdown values within the customization\
+    \ page in Oomnitza. In case you want to be able to post any data into these fields,\
+    \ you should switch them to dropdown without value within the customization page.\n"
+  title: External API
+  version: 3.0.3
+servers:
+- url: /
+security:
+- api_key: []
+- basic_auth: []
+paths:
+  /api/v3/accessories:
+    get:
+      description: Get records list
+      parameters:
+      - description: Limit records
+        explode: false
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Skip records
+        explode: false
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Order for results
+        explode: false
+        in: query
+        name: sortby
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/accessories_list_response/get/200'
+      tags:
+      - Accessories
+    post:
+      description: Create record
+      parameters:
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Accessory'
+      responses:
+        "200":
+          $ref: '#/components/responses/accessories_list_response/post/200'
+      tags:
+      - Accessories
+  /api/v3/accessories/{ident}:
+    delete:
+      description: Delete record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/accessories_detail_response/get/200'
+      tags:
+      - Accessories
+    get:
+      description: Get record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/accessories_detail_response/get/200'
+      tags:
+      - Accessories
+    patch:
+      description: Edit record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Accessory'
+      responses:
+        "200":
+          $ref: '#/components/responses/accessories_detail_response/get/200'
+      tags:
+      - Accessories
+  /api/v3/accessories/{ident}/changes-history:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Accessories
+  /api/v3/accessories/savedsearches:
+    get:
+      description: Get saved searches list
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Accessories
+  /api/v3/accessories/savedsearches/{ident}:
+    get:
+      description: Get saved search details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Accessories
+  /api/v3/activities:
+    get:
+      description: Get a list of records
+      parameters: []
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Activities
+  /api/v3/assets:
+    get:
+      description: Get records list
+      parameters:
+      - description: Limit records
+        explode: false
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Skip records
+        explode: false
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Order for results
+        explode: false
+        in: query
+        name: sortby
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/assets_list_response/get/200'
+      tags:
+      - Assets
+    post:
+      description: Create record
+      parameters:
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Asset'
+      responses:
+        "200":
+          $ref: '#/components/responses/assets_list_response/post/200'
+      tags:
+      - Assets
+  /api/v3/assets/{ident}:
+    delete:
+      description: Delete record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/assets_detail_response/get/200'
+      tags:
+      - Assets
+    get:
+      description: Get record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/assets_detail_response/get/200'
+      tags:
+      - Assets
+    patch:
+      description: Edit record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Asset'
+      responses:
+        "200":
+          $ref: '#/components/responses/assets_detail_response/get/200'
+      tags:
+      - Assets
+  /api/v3/assets/{ident}/changes-history:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Assets
+  /api/v3/assets/{ident}/software:
+    get:
+      description: Get software list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/assets_detail_software_response/get/200'
+      tags:
+      - Assets
+  /api/v3/assets/savedsearches:
+    get:
+      description: Get saved searches list
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Assets
+  /api/v3/assets/savedsearches/{ident}:
+    get:
+      description: Get saved search details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Assets
+  /api/v3/contracts:
+    get:
+      description: Get records list
+      parameters:
+      - description: Limit records
+        explode: false
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Skip records
+        explode: false
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Order for results
+        explode: false
+        in: query
+        name: sortby
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/contracts_list_response/get/200'
+      tags:
+      - Contracts
+    post:
+      description: Create record
+      parameters:
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contract'
+      responses:
+        "200":
+          $ref: '#/components/responses/contracts_list_response/post/200'
+      tags:
+      - Contracts
+  /api/v3/contracts/{ident}:
+    delete:
+      description: Delete record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/contracts_detail_response/get/200'
+      tags:
+      - Contracts
+    get:
+      description: Get record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/contracts_detail_response/get/200'
+      tags:
+      - Contracts
+    patch:
+      description: Edit record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contract'
+      responses:
+        "200":
+          $ref: '#/components/responses/contracts_detail_response/get/200'
+      tags:
+      - Contracts
+  /api/v3/contracts/{ident}/changes-history:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Contracts
+  /api/v3/contracts/savedsearches:
+    get:
+      description: Get saved searches list
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Contracts
+  /api/v3/contracts/savedsearches/{ident}:
+    get:
+      description: Get saved search details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Contracts
+  /api/v3/custom_objects:
+    get:
+      description: Get Custom Objects list
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_objects_list/get/200'
+      tags:
+      - Custom Objects
+    post:
+      description: Create Custom Object
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Custom Object'
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_objects_list/post/201'
+      tags:
+      - Custom Objects
+  /api/v3/custom_objects/{ident}:
+    delete:
+      description: Delete Custom Object
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_objects_list/post/201'
+      tags:
+      - Custom Objects
+    get:
+      description: Get Custom Object details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_objects_list/post/201'
+      tags:
+      - Custom Objects
+    patch:
+      description: Edit Custom Object details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Custom Object'
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_objects_list/post/201'
+      tags:
+      - Custom Objects
+  /api/v3/custom_objects/{ident}/records:
+    get:
+      description: Get Custom Object Records list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_object_records_list/get/200'
+      tags:
+      - Custom Objects
+    post:
+      description: Create Custom Object Record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Custom Object Record'
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_object_records_detail/get/200'
+      tags:
+      - Custom Objects
+  /api/v3/custom_objects/{ident}/records/{custom_object_record_id}:
+    delete:
+      description: Delete Custom Object Record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of Custom Object Record
+        explode: false
+        in: path
+        name: custom_object_record_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_object_records_detail/get/200'
+      tags:
+      - Custom Objects
+    get:
+      description: Get Custom Object Record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of Custom Object Record
+        explode: false
+        in: path
+        name: custom_object_record_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_object_records_detail/get/200'
+      tags:
+      - Custom Objects
+    patch:
+      description: Edit Custom Object Record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of Custom Object Record
+        explode: false
+        in: path
+        name: custom_object_record_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Custom Object Record'
+      responses:
+        "200":
+          $ref: '#/components/responses/custom_object_records_detail/get/200'
+      tags:
+      - Custom Objects
+  /api/v3/custom_objects/{ident}/records/{custom_object_record_id}/changes-history:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of Custom Object Record
+        explode: false
+        in: path
+        name: custom_object_record_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Custom Objects
+  /api/v3/locations:
+    get:
+      description: Get records list
+      parameters:
+      - description: Limit records
+        explode: false
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Skip records
+        explode: false
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Order for results
+        explode: false
+        in: query
+        name: sortby
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/locations_list_response/get/200'
+      tags:
+      - Locations
+    post:
+      description: Create record
+      parameters:
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Location'
+      responses:
+        "200":
+          $ref: '#/components/responses/locations_list_response/post/200'
+      tags:
+      - Locations
+  /api/v3/locations/{ident}:
+    delete:
+      description: Delete record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/locations_detail_response/get/200'
+      tags:
+      - Locations
+    get:
+      description: Get record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/locations_detail_response/get/200'
+      tags:
+      - Locations
+    patch:
+      description: Edit record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Location'
+      responses:
+        "200":
+          $ref: '#/components/responses/locations_detail_response/get/200'
+      tags:
+      - Locations
+  /api/v3/locations/{ident}/changes-history:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Locations
+  /api/v3/locations/savedsearches:
+    get:
+      description: Get saved searches list
+      parameters: []
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Locations
+  /api/v3/locations/savedsearches/{ident}:
+    get:
+      description: Get saved search details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Locations
+  /api/v3/saas:
+    get:
+      description: Get SaaS list
+      parameters:
+      - description: Limit records
+        explode: false
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Skip records
+        explode: false
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Order for results
+        explode: false
+        in: query
+        name: sortby
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_list/get/200'
+      tags:
+      - SaaS
+    post:
+      description: Create SaaS
+      parameters:
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaaS'
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_list/post/201'
+      tags:
+      - SaaS
+  /api/v3/saas/{ident}:
+    delete:
+      description: Delete SaaS
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_detail_response/get/200'
+      tags:
+      - SaaS
+    get:
+      description: Get SaaS details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_detail_response/get/200'
+      tags:
+      - SaaS
+    patch:
+      description: Edit SaaS details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaaS'
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_detail_response/get/200'
+      tags:
+      - SaaS
+  /api/v3/saas/{ident}/changes-history:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - SaaS
+  /api/v3/saas/savedsearches:
+    get:
+      description: Get saved searches list
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - SaaS
+  /api/v3/saas/savedsearches/{ident}:
+    get:
+      description: Get saved search details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - SaaS
+  /api/v3/saas_users:
+    get:
+      description: Get Users list assigned to the SaaS
+      parameters:
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 full text search expression
+        explode: false
+        in: path
+        name: text
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Filter by roles. Exclude users where there are no common roles
+          in the list of required roles and list of user roles
+        explode: false
+        in: path
+        name: roles
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_users_list/get/200'
+      tags:
+      - SaaS Users
+  /api/v3/saas_users/activate:
+    patch:
+      description: Activate Users in the SaaS
+      requestBody:
+        content:
+          application/json:
+            example:
+              saas_user_ids:
+              - saas_user_id_1
+              - saas_user_id_2
+              - saas_user_id_3
+            schema:
+              $ref: '#/components/schemas/inline_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+              - saas_user_id: saas_user_id_1
+                error: null
+              - saas_user_id: saas_user_id_2
+                error: Smth bad has happend
+              - saas_user_id: saas_user_id_3
+                error: null
+              schema:
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+                type: array
+          description: Response
+      tags:
+      - SaaS Users
+  /api/v3/saas_users/deactivate:
+    patch:
+      description: Deactivate Users in the SaaS
+      requestBody:
+        content:
+          application/json:
+            example:
+              saas_user_ids:
+              - saas_user_id_1
+              - saas_user_id_2
+              - saas_user_id_3
+            schema:
+              $ref: '#/components/schemas/inline_request'
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+              - saas_user_id: saas_user_id_1
+                error: null
+              - saas_user_id: saas_user_id_2
+                error: Smth bad has happend
+              - saas_user_id: saas_user_id_3
+                error: null
+              schema:
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+                type: array
+          description: Response
+      tags:
+      - SaaS Users
+  /api/v3/saas/{ident}/users:
+    get:
+      description: Get Users list assigned to the SaaS
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Filter by last_visit date
+        explode: false
+        in: path
+        name: last_visit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Filter by roles. Exclude users where there are no common roles
+          in the list of required roles and list of user roles
+        explode: false
+        in: path
+        name: roles
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_users_list/get/200'
+      tags:
+      - SaaS Users
+    post:
+      description: Bulk assign Users to the SaaS
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaaS Users Object'
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_users_list/post/200'
+      tags:
+      - SaaS Users
+  /api/v3/saas/{ident}/users/{user_id}:
+    post:
+      description: Store user_external_id of user in external saas system
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of User
+        explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaaS User Manage Object'
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_user_manage_object/post/200'
+      tags:
+      - SaaS Users
+  /api/v3/saas/{ident}/roles:
+    get:
+      description: Gets SaaS Roles list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_roles_list/get/200'
+      tags:
+      - SaaS Users
+    post:
+      description: Create SaaS Role
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaaS Create Role Object'
+      responses:
+        "201":
+          $ref: '#/components/responses/saas_roles_list/post/201'
+      tags:
+      - SaaS Users
+  /api/v3/saas/{ident}/roles/{saas_role_id}:
+    delete:
+      description: Delete SaaS Role and Users relations
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of SaaS Role
+        explode: false
+        in: path
+        name: saas_role_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          $ref: '#/components/responses/saas_roles_detail/delete/204'
+      tags:
+      - SaaS Users
+    patch:
+      description: Update SaaS Role
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: ID of SaaS Role
+        explode: false
+        in: path
+        name: saas_role_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaaS Edit Role Object'
+      responses:
+        "200":
+          $ref: '#/components/responses/saas_roles_detail/patch/200'
+      tags:
+      - SaaS Users
+  /api/v3/saas/{ident}/roles/users:
+    delete:
+      description: Unassign users from the SaaS Roles
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          $ref: '#/components/responses/users_saas_roles_manage/delete/204'
+      tags:
+      - SaaS Users
+    patch:
+      description: Assign users to the SaaS Roles. Overwrites the current list of
+        the User's roles in this certain SaaS. If new Role values come in the list
+        than new SaaSRole records will be created.
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users SaaS Role Update List Object'
+      responses:
+        "200":
+          $ref: '#/components/responses/users_saas_roles_manage/post/200'
+      tags:
+      - SaaS Users
+    post:
+      description: Assign Users to the SaaS Roles
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users SaaS Roles List Object'
+      responses:
+        "200":
+          $ref: '#/components/responses/users_saas_roles_manage/post/200'
+      tags:
+      - SaaS Users
+  /api/v3/software:
+    get:
+      description: Get records list
+      parameters:
+      - description: Limit records
+        explode: false
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Skip records
+        explode: false
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Order for results
+        explode: false
+        in: query
+        name: sortby
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/software_list_response/get/200'
+      tags:
+      - Software
+    post:
+      description: Create record
+      parameters:
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Software'
+      responses:
+        "200":
+          $ref: '#/components/responses/software_list_response/post/200'
+      tags:
+      - Software
+  /api/v3/software/{ident}:
+    delete:
+      description: Delete record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/software_detail_response/get/200'
+      tags:
+      - Software
+    get:
+      description: Get record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/software_detail_response/get/200'
+      tags:
+      - Software
+    patch:
+      description: Edit record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Software'
+      responses:
+        "200":
+          $ref: '#/components/responses/software_detail_response/get/200'
+      tags:
+      - Software
+  /api/v3/software/{ident}/changes-history:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Software
+  /api/v3/software/{ident}/assets:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/assets_list_response/get/200'
+      tags:
+      - Software
+  /api/v3/software/savedsearches:
+    get:
+      description: Get saved searches list
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Software
+  /api/v3/software/savedsearches/{ident}:
+    get:
+      description: Get saved search details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Software
+  /api/v3/stockrooms:
+    get:
+      description: Get records list
+      parameters:
+      - description: Limit records
+        explode: false
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Skip records
+        explode: false
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Order for results
+        explode: false
+        in: query
+        name: sortby
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/stockrooms_list_response/get/200'
+      tags:
+      - Stockrooms
+    post:
+      description: Create record
+      parameters:
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stockroom'
+      responses:
+        "200":
+          $ref: '#/components/responses/stockrooms_list_response/post/200'
+      tags:
+      - Stockrooms
+  /api/v3/stockrooms/{ident}:
+    delete:
+      description: Delete record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/stockrooms_detail_response/get/200'
+      tags:
+      - Stockrooms
+    get:
+      description: Get record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/stockrooms_detail_response/get/200'
+      tags:
+      - Stockrooms
+    patch:
+      description: Edit record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stockroom'
+      responses:
+        "200":
+          $ref: '#/components/responses/stockrooms_detail_response/get/200'
+      tags:
+      - Stockrooms
+  /api/v3/stockrooms/{ident}/changes-history:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Stockrooms
+  /api/v3/stockrooms/savedsearches:
+    get:
+      description: Get saved searches list
+      parameters: []
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Stockrooms
+  /api/v3/stockrooms/savedsearches/{ident}:
+    get:
+      description: Get saved search details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Stockrooms
+  /api/v3/subscriptions:
+    get:
+      description: Get records list
+      parameters: []
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Subscriptions
+    post:
+      description: Create record
+      parameters:
+      - description: The name of the alternative unique field
+        explode: false
+        in: query
+        name: alternative_id
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Subscriptions
+  /api/v3/subscriptions/{ident}:
+    delete:
+      description: Delete record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Subscriptions
+    get:
+      description: Get record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Subscriptions
+    patch:
+      description: Edit record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Subscriptions
+  /api/v3/users:
+    get:
+      description: Get records list
+      parameters:
+      - description: Limit records
+        explode: false
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Skip records
+        explode: false
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Order for results
+        explode: false
+        in: query
+        name: sortby
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/users_list_response/get/200'
+      tags:
+      - Users
+    post:
+      description: Create record
+      parameters:
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          $ref: '#/components/responses/users_list_response/post/200'
+      tags:
+      - Users
+  /api/v3/users/{ident}:
+    delete:
+      description: Delete record
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/users_detail_response/get/200'
+      tags:
+      - Users
+    get:
+      description: Get record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/users_detail_response/get/200'
+      tags:
+      - Users
+    patch:
+      description: Edit record details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Used to allow the non-system edit-only field to be updated.\
+          \ Allowed values: 0, 1"
+        explode: false
+        in: header
+        name: Oomnitza-Ignore-Meta-Restriction
+        required: false
+        schema:
+          enum:
+          - "0"
+          - "1"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          $ref: '#/components/responses/users_detail_response/get/200'
+      tags:
+      - Users
+  /api/v3/users/{ident}/assets:
+    get:
+      description: Get assets list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/users_detail_assets_response/get/200'
+      tags:
+      - Users
+  /api/v3/users/{ident}/changes-history:
+    get:
+      description: Get history changes list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Users
+  /api/v3/users/{ident}/profile_settings:
+    get:
+      description: Get profile settings list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Users
+  /api/v3/users/{ident}/software:
+    get:
+      description: Get Software list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/assets_detail_software_response/get/200'
+      tags:
+      - Users
+  /api/v3/users/{ident}/software/saas:
+    get:
+      description: Get SaaS list
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/users_software_saas_list/get/200'
+      tags:
+      - Users
+  /api/v3/users/savedsearches:
+    get:
+      description: Get saved searches list
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_list_response/get/200'
+      tags:
+      - Users
+  /api/v3/users/savedsearches/{ident}:
+    get:
+      description: Get saved search details
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/empty_detail_response/get/200'
+      tags:
+      - Users
+  /api/v3/connector_run_logs/{ident}:
+    get:
+      description: Get run logs list for particular connector.
+      parameters:
+      - description: Limit records
+        explode: false
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Skip records
+        explode: false
+        in: query
+        name: skip
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Order for results
+        explode: false
+        in: query
+        name: sortby
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Regular API v3 filter expression
+        explode: false
+        in: path
+        name: filter
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/connector_run_logs/get/200'
+      tags:
+      - Connector
+  /api/v3/connector_run_logs/connectors/{ident}:
+    get:
+      description: Get details of particular portion of connector run logs.
+      parameters:
+      - description: "ID of system object (assets, locations, ...)"
+        explode: false
+        in: path
+        name: ident
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          $ref: '#/components/responses/connector_run_logs_portion_details/get/200'
+      tags:
+      - Connector
+components:
+  links: {}
+  parameters:
+    q:
+      description: Text to search in objects
+      explode: false
+      in: query
+      name: q
+      required: false
+      schema:
+        type: string
+      style: simple
+    object_type:
+      description: "Type of system object (assets, locations, ...)"
+      explode: false
+      in: path
+      name: object_type
+      required: true
+      schema:
+        type: string
+      style: simple
+    object_id:
+      description: "ID of system object (assets, locations, ...)"
+      explode: false
+      in: path
+      name: object_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    skip:
+      description: Skip records
+      explode: false
+      in: query
+      name: skip
+      required: false
+      schema:
+        type: string
+      style: simple
+    limit:
+      description: Limit records
+      explode: false
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: string
+      style: simple
+    text:
+      description: Regular API v3 full text search expression
+      explode: false
+      in: path
+      name: text
+      required: false
+      schema:
+        type: string
+      style: simple
+    sortby:
+      description: Order for results
+      explode: false
+      in: query
+      name: sortby
+      required: false
+      schema:
+        type: string
+      style: simple
+    filter:
+      description: Regular API v3 filter expression
+      explode: false
+      in: path
+      name: filter
+      required: false
+      schema:
+        type: string
+      style: simple
+    ident:
+      description: "ID of system object (assets, locations, ...)"
+      explode: false
+      in: path
+      name: ident
+      required: true
+      schema:
+        type: string
+      style: simple
+    ignore_meta_restriction:
+      description: "Used to allow the non-system edit-only field to be updated. Allowed\
+        \ values: 0, 1"
+      explode: false
+      in: header
+      name: Oomnitza-Ignore-Meta-Restriction
+      required: false
+      schema:
+        enum:
+        - "0"
+        - "1"
+        type: string
+      style: simple
+    alternative_id:
+      description: The name of the alternative unique field
+      explode: false
+      in: query
+      name: alternative_id
+      required: false
+      schema:
+        type: string
+      style: simple
+    custom_object_record_id:
+      description: ID of Custom Object Record
+      explode: false
+      in: path
+      name: custom_object_record_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    roles:
+      description: Filter by roles. Exclude users where there are no common roles
+        in the list of required roles and list of user roles
+      explode: false
+      in: path
+      name: roles
+      required: false
+      schema:
+        type: string
+      style: simple
+    last_visit:
+      description: Filter by last_visit date
+      explode: false
+      in: path
+      name: last_visit
+      required: false
+      schema:
+        type: string
+      style: simple
+    user_id:
+      description: ID of User
+      explode: false
+      in: path
+      name: user_id
+      required: true
+      schema:
+        type: string
+      style: simple
+    saas_role_id:
+      description: ID of SaaS Role
+      explode: false
+      in: path
+      name: saas_role_id
+      required: true
+      schema:
+        type: string
+      style: simple
+  responses:
+    empty_list_response: {}
+    empty_detail_response: {}
+    accessories_list_response: {}
+    accessories_detail_response: {}
+    assets_list_response: {}
+    assets_detail_response: {}
+    assets_detail_software_response: {}
+    contracts_list_response: {}
+    contracts_detail_response: {}
+    custom_objects_list: {}
+    custom_object_records_list: {}
+    custom_object_records_detail: {}
+    locations_list_response: {}
+    locations_detail_response: {}
+    saas_list: {}
+    saas_detail_response: {}
+    users_saas_roles_manage: {}
+    saas_roles_detail: {}
+    saas_roles_list: {}
+    saas_users_list: {}
+    saas_user_manage_object: {}
+    software_list_response: {}
+    software_detail_response: {}
+    stockrooms_list_response: {}
+    stockrooms_detail_response: {}
+    users_list_response: {}
+    users_detail_response: {}
+    users_detail_assets_response: {}
+    users_software_saas_list: {}
+    connector_run_logs: {}
+    connector_run_logs_portion_details: {}
+  schemas:
+    Metadata field:
+      properties:
+        internal_id:
+          nullable: true
+          type: string
+        uid:
+          type: string
+        label:
+          nullable: true
+          type: string
+        belongs_to:
+          nullable: true
+          type: string
+        data_type:
+          nullable: true
+          type: string
+        subtype:
+          nullable: true
+          type: string
+        length:
+          nullable: true
+          type: integer
+        editable:
+          nullable: true
+          type: string
+        hardcode:
+          nullable: true
+          type: string
+        optional:
+          nullable: true
+          type: string
+        display_order:
+          nullable: true
+          type: string
+        default_value:
+          nullable: true
+          type: string
+        unique:
+          type: string
+        searchhelp:
+          items:
+            $ref: '#/components/schemas/Metadata_field_searchhelp_inner'
+          nullable: true
+          type: array
+        searchhelp_type:
+          nullable: true
+          type: string
+        help_text:
+          nullable: true
+          type: string
+        dependencies:
+          $ref: '#/components/schemas/Metadata_field_dependencies'
+        flags:
+          nullable: true
+          type: object
+        dropdown_help_text_enabled:
+          type: string
+      required:
+      - dropdown_help_text_enabled
+      - uid
+      - unique
+      type: object
+    Metadata fields:
+      properties:
+        '{external_id}':
+          $ref: '#/components/schemas/Metadata field'
+      required:
+      - "{external_id}"
+      type: object
+    Accessory:
+      example:
+        change_date: 1
+        accessory_id: accessory_id
+        creation_date: 6
+        created_by: created_by
+        version: version
+        uid: uid
+        deleted: deleted
+        price: 0.8008281904610115
+        changed_by: changed_by
+        accessory_name: accessory_name
+        loan_only: true
+        category: category
+        sku: sku
+      properties:
+        accessory_id:
+          type: string
+        accessory_name:
+          type: string
+        category:
+          type: string
+        sku:
+          type: string
+        price:
+          type: number
+        loan_only:
+          type: boolean
+        creation_date:
+          type: integer
+        change_date:
+          type: integer
+        created_by:
+          type: string
+        changed_by:
+          type: string
+        version:
+          type: string
+        deleted:
+          type: string
+        uid:
+          type: string
+      type: object
+    Asset:
+      example:
+        tickets: tickets
+        notes: notes
+        change_date: 6
+        warranty_end_date: 2
+        imei__meid: imei__meid
+        is_parent: true
+        is_child: true
+        manufacturer: manufacturer
+        uid: uid
+        device_name: device_name
+        po_number: po_number
+        loan_due_date: 7
+        stockroom: stockroom
+        mac_address: mac_address
+        vendor: vendor
+        asset_type: asset_type
+        currently_logged_in_user: currently_logged_in_user
+        operating_system: operating_system
+        model: model
+        department: department
+        barcode: barcode
+        assigned_to: assigned_to
+        cpu: cpu
+        serial_number: serial_number
+        creation_date: 0
+        ip_address: ip_address
+        version: version
+        created_by: created_by
+        condition: condition
+        deleted: deleted
+        changed_by: changed_by
+        purchase_price: 5.637376656633329
+        location: location
+        end_of_life_date: 1
+        purchase_date: 5
+        equipment_id: equipment_id
+        status: status
+      properties:
+        equipment_id:
+          type: string
+        version:
+          type: string
+        creation_date:
+          type: integer
+        change_date:
+          type: integer
+        created_by:
+          type: string
+        changed_by:
+          type: string
+        location:
+          type: string
+        stockroom:
+          type: string
+        assigned_to:
+          type: string
+        tickets:
+          type: string
+        is_parent:
+          type: boolean
+        is_child:
+          type: boolean
+        barcode:
+          type: string
+        deleted:
+          type: string
+        operating_system:
+          type: string
+        asset_type:
+          type: string
+        end_of_life_date:
+          type: integer
+        serial_number:
+          type: string
+        department:
+          type: string
+        status:
+          type: string
+        manufacturer:
+          type: string
+        model:
+          type: string
+        device_name:
+          type: string
+        currently_logged_in_user:
+          type: string
+        ip_address:
+          type: string
+        mac_address:
+          type: string
+        imei__meid:
+          type: string
+        vendor:
+          type: string
+        purchase_date:
+          type: integer
+        po_number:
+          type: string
+        purchase_price:
+          type: number
+        warranty_end_date:
+          type: integer
+        cpu:
+          type: string
+        loan_due_date:
+          type: integer
+        notes:
+          type: string
+        condition:
+          type: string
+        uid:
+          type: string
+      type: object
+    Contract:
+      example:
+        saas_id: saas_id
+        responsible_person: responsible_person
+        change_date: 2
+        contract_id: contract_id
+        software_id: software_id
+        uid: uid
+        calculate_per_user_price: true
+        autorenewal: true
+        renewal_date: 6
+        price: 0.8008281904610115
+        payment_date: 1
+        number_of_seats: 5
+        default_saas_contract: true
+        number_of_licenses: 5
+        limit_number_of_licenses: true
+        contract_name: contract_name
+        creation_date: 7
+        version: version
+        created_by: created_by
+        license_key: license_key
+        payment_schedule: payment_schedule
+        contract_type: contract_type
+        licenses_in_use: 9
+        deleted: deleted
+        oversubscribe_licenses: true
+        changed_by: changed_by
+      properties:
+        contract_name:
+          type: string
+        contract_type:
+          type: string
+        software_id:
+          type: string
+        saas_id:
+          type: string
+        default_saas_contract:
+          type: boolean
+        price:
+          type: number
+        payment_schedule:
+          type: string
+        renewal_date:
+          type: integer
+        responsible_person:
+          type: string
+        payment_date:
+          type: integer
+        autorenewal:
+          type: boolean
+        limit_number_of_licenses:
+          type: boolean
+        number_of_licenses:
+          type: integer
+        number_of_seats:
+          type: integer
+        oversubscribe_licenses:
+          type: boolean
+        license_key:
+          type: string
+        calculate_per_user_price:
+          type: boolean
+        change_date:
+          type: integer
+        version:
+          type: string
+        changed_by:
+          type: string
+        creation_date:
+          type: integer
+        created_by:
+          type: string
+        licenses_in_use:
+          type: integer
+        contract_id:
+          type: string
+        deleted:
+          type: string
+        uid:
+          type: string
+      type: object
+    Custom Object:
+      properties:
+        custom_object_name:
+          type: string
+        description:
+          type: string
+        is_main_object:
+          type: boolean
+        type:
+          enum:
+          - lookup_object
+          - stand_alone_object
+          type: string
+      required:
+      - custom_object_name
+      - type
+      type: object
+    Custom Object Record:
+      properties:
+        custom_object_record_name:
+          type: string
+      required:
+      - custom_object_record_name
+      type: object
+    Location:
+      example:
+        uid: uid
+        deleted: deleted
+        change_date: 1
+        changed_by: changed_by
+        latitude: 0.8008281904610115
+        name: name
+        creation_date: 5
+        created_by: created_by
+        version: version
+        location_id: location_id
+        longitude: 6.027456183070403
+      properties:
+        location_id:
+          type: string
+        name:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        change_date:
+          type: integer
+        changed_by:
+          type: string
+        creation_date:
+          type: integer
+        created_by:
+          type: string
+        version:
+          type: string
+        deleted:
+          type: string
+        uid:
+          type: string
+      type: object
+    SaaS:
+      example:
+        available_licenses: 6
+        creationdate: creationdate
+        usage_statistic: usage_statistic
+        usage_history: usage_history
+        saas_id: 5
+        source: source
+        uid: 2
+        renewal_date: renewal_date
+        createdby: createdby
+        total_licenses: 5
+        saas_name: saas_name
+        linked: linked
+        ignored: ignored
+        is_inf: true
+        link_key: link_key
+        changedate: changedate
+        version: version
+        url: url
+        deleted: deleted
+        changedby: changedby
+        visited: 0
+        publisher: publisher
+        category: category
+        annual_spend: 1.4658129805029452
+        hash: true
+      properties:
+        saas_name:
+          type: string
+        linked:
+          type: string
+        category:
+          type: string
+        usage_statistic:
+          type: string
+        usage_history:
+          type: string
+        link_key:
+          type: string
+        publisher:
+          type: string
+        url:
+          type: string
+        source:
+          type: string
+        ignored:
+          type: string
+        version:
+          type: string
+        visited:
+          type: integer
+        available_licenses:
+          type: integer
+        annual_spend:
+          type: number
+        renewal_date:
+          type: string
+        changedate:
+          type: string
+        changedby:
+          type: string
+        creationdate:
+          type: string
+        createdby:
+          type: string
+        saas_id:
+          type: integer
+        hash:
+          type: boolean
+        total_licenses:
+          type: integer
+        deleted:
+          type: string
+        uid:
+          type: integer
+        is_inf:
+          type: boolean
+      required:
+      - changedate
+      - changedby
+      - createdby
+      - creationdate
+      - hash
+      - ignored
+      - link_key
+      - linked
+      - saas_name
+      - source
+      type: object
+    SaaS User Object:
+      items:
+        $ref: '#/components/schemas/SaaS_User_Object_inner'
+      type: array
+    SaaS assigned User:
+      properties:
+        email:
+          type: string
+        full_name:
+          type: string
+        last_visit:
+          type: integer
+        old_usage:
+          type: boolean
+        user_id:
+          type: string
+        username:
+          type: string
+        media_url:
+          type: string
+        contract_id:
+          type: string
+        roles:
+          $ref: '#/components/schemas/SaaS_assigned_User_roles'
+        user_external_id:
+          type: string
+      required:
+      - contract_id
+      - email
+      - full_name
+      - last_visit
+      - media_url
+      - old_usage
+      - roles
+      - user_external_id
+      - user_id
+      - username
+      type: object
+    SaaS Create Role Object:
+      properties:
+        role_external_label:
+          type: string
+      type: object
+    SaaS Edit Role Object:
+      properties:
+        role_external_label:
+          type: string
+      type: object
+    Users SaaS Roles List Object:
+      properties:
+        users:
+          items:
+            type: string
+          type: array
+        roles:
+          items:
+            type: string
+          type: array
+      required:
+      - roles
+      - users
+      type: object
+    Users SaaS Role Update List Object:
+      properties:
+        users:
+          type: string
+        roles:
+          items:
+            $ref: '#/components/schemas/Users_SaaS_Role_Update_List_Object_roles_inner'
+          type: array
+      required:
+      - roles
+      - users
+      type: object
+    SaaS roles:
+      properties:
+        role_id:
+          type: string
+        saas_id:
+          type: string
+        source:
+          type: integer
+        role_external_id:
+          type: string
+        role_external_label:
+          type: string
+        users_count:
+          type: integer
+      type: object
+    SaaS Users Object:
+      items:
+        $ref: '#/components/schemas/SaaS_User_Object_inner'
+      type: array
+    SaaS User Manage Object:
+      properties:
+        user_external_id:
+          type: string
+      required:
+      - user_external_id
+      type: object
+    Software:
+      example:
+        ignored: true
+        change_date: 5
+        link_key: link_key
+        number_of_assets: 1
+        creation_date: 5
+        created_by: created_by
+        version: version
+        url: url
+        software_id: software_id
+        number_of_users: 6
+        deleted: deleted
+        renewal_date: 7
+        sync_key: sync_key
+        changed_by: changed_by
+        publisher: publisher
+        software_name: software_name
+        category: category
+        annual_spend: 2.3021358869347655
+        number_of_seats: 0
+        hash: hash
+        linked: true
+      properties:
+        software_name:
+          type: string
+        category:
+          type: string
+        publisher:
+          type: string
+        number_of_seats:
+          type: integer
+        number_of_users:
+          type: integer
+        number_of_assets:
+          type: integer
+        change_date:
+          type: integer
+        changed_by:
+          type: string
+        creation_date:
+          type: integer
+        created_by:
+          type: string
+        url:
+          type: string
+        annual_spend:
+          type: number
+        renewal_date:
+          type: integer
+        hash:
+          type: string
+        sync_key:
+          type: string
+        link_key:
+          type: string
+        software_id:
+          type: string
+        linked:
+          type: boolean
+        ignored:
+          type: boolean
+        version:
+          type: string
+        deleted:
+          type: string
+      type: object
+    Stockroom:
+      example:
+        allow_return_not_assigned: true
+        loan_period: 5
+        change_date: 2
+        accessories_min_limit: 0
+        creation_date: 5
+        created_by: created_by
+        version: version
+        stockroom_name: stockroom_name
+        uid: uid
+        default_spoc: default_spoc
+        stockroom_id: stockroom_id
+        deleted: deleted
+        quantity_replenish_by: 1
+        changed_by: changed_by
+        location: location
+        accessories_max_limit: 6
+        shipping_address: shipping_address
+        show_new_and_used: true
+        locked: true
+      properties:
+        stockroom_id:
+          type: string
+        stockroom_name:
+          type: string
+        location:
+          type: string
+        shipping_address:
+          type: string
+        default_spoc:
+          type: string
+        accessories_min_limit:
+          type: integer
+        accessories_max_limit:
+          type: integer
+        quantity_replenish_by:
+          type: integer
+        loan_period:
+          type: integer
+        show_new_and_used:
+          type: boolean
+        allow_return_not_assigned:
+          type: boolean
+        locked:
+          type: boolean
+        created_by:
+          type: string
+        creation_date:
+          type: integer
+        changed_by:
+          type: string
+        change_date:
+          type: integer
+        version:
+          type: string
+        deleted:
+          type: string
+        uid:
+          type: string
+      type: object
+    User:
+      example:
+        address: address
+        role: 1
+        change_date: 0
+        last_name: last_name
+        external_id: external_id
+        creation_date: 6
+        email_subscription: true
+        last_login_date: 5
+        created_by: created_by
+        version: version
+        suspended: true
+        uid: uid
+        full_name: full_name
+        deleted: deleted
+        user_id: user_id
+        changed_by: changed_by
+        phone_number: phone_number
+        position: position
+        first_name: first_name
+        email: email
+        username: username
+      properties:
+        username:
+          type: string
+        full_name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        suspended:
+          type: boolean
+        address:
+          type: string
+        phone_number:
+          type: string
+        position:
+          type: string
+        change_date:
+          type: integer
+        changed_by:
+          type: string
+        creation_date:
+          type: integer
+        created_by:
+          type: string
+        external_id:
+          type: string
+        email_subscription:
+          type: boolean
+        version:
+          type: string
+        role:
+          type: integer
+        last_login_date:
+          type: integer
+        deleted:
+          type: string
+        uid:
+          type: string
+        user_id:
+          type: string
+      type: object
+    User assigned SaaS:
+      properties:
+        assigned_contract_id:
+          type: string
+        available_contracts:
+          items:
+            $ref: '#/components/schemas/User_assigned_SaaS_available_contracts_inner'
+          type: array
+        roles:
+          items:
+            $ref: '#/components/schemas/SaaS_assigned_User_roles'
+          type: array
+        estimated_spend:
+          type: integer
+        saas_id:
+          type: string
+        saas_name:
+          type: string
+        uid:
+          type: integer
+      required:
+      - assigned_contract_id
+      - available_contracts
+      - estimated_spend
+      - roles
+      - saas_id
+      - saas_name
+      - uid
+      type: object
+    Connector run logs:
+      properties:
+        portion_id:
+          type: integer
+        portion_correlation_id:
+          type: string
+        start_time:
+          format: float
+          type: number
+        end_time:
+          format: float
+          type: number
+        connector:
+          type: string
+        is_media_storage_service:
+          type: boolean
+        status:
+          type: string
+        test_run:
+          type: boolean
+        deployment:
+          type: string
+        ipv4_address:
+          type: string
+        added_records_count:
+          type: integer
+        updated_records_count:
+          type: integer
+        skipped_records_count:
+          type: integer
+        error_logs_count:
+          type: integer
+      required:
+      - added_records_count
+      - connector
+      - deployment
+      - end_time
+      - error_logs_count
+      - ipv4_address
+      - is_media_storage_service
+      - portion_correlation_id
+      - portion_id
+      - skipped_records_count
+      - start_time
+      - status
+      - test_run
+      - updated_records_count
+      type: object
+    Connector run logs portion details:
+      properties:
+        connector:
+          type: string
+        deployment:
+          type: string
+        start_time:
+          type: integer
+        end_time:
+          type: integer
+        status:
+          type: string
+        ipv4_address:
+          type: string
+        objects:
+          $ref: '#/components/schemas/Connector_run_logs_portion_details_objects'
+        logs:
+          $ref: '#/components/schemas/Connector_run_logs_portion_details_logs'
+        file_attachment:
+          $ref: '#/components/schemas/Connector_run_logs_portion_details_file_attachment'
+        test_run:
+          type: boolean
+        test_run_payload:
+          items:
+            type: object
+          type: array
+      required:
+      - connector
+      - deployment
+      - end_time
+      - file_attachment
+      - ipv4_address
+      - logs
+      - objects
+      - start_time
+      - status
+      - test_run
+      - test_run_payload
+      type: object
+    inline_request:
+      properties:
+        saas_user_ids:
+          items:
+            type: string
+          type: array
+      type: object
+    inline_response_200:
+      example:
+        saas_user_id: saas_user_id
+        error: error
+      properties:
+        saas_user_id:
+          type: string
+        error:
+          type: string
+      type: object
+    Metadata_field_searchhelp_inner:
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        help_text:
+          type: string
+      required:
+      - help_text
+      - key
+      - value
+      type: object
+    Metadata_field_dependencies:
+      nullable: true
+      properties:
+        '{external_id}':
+          items:
+            type: string
+          type: array
+      required:
+      - "{external_id}"
+      type: object
+    SaaS_User_Object_inner:
+      properties:
+        user_id:
+          type: string
+        assign:
+          type: boolean
+      required:
+      - assign
+      - user_id
+      type: object
+    SaaS_assigned_User_roles:
+      properties:
+        role_id:
+          type: string
+        role_external_id:
+          type: string
+        role_external_label:
+          type: string
+      required:
+      - role_external_id
+      - role_external_label
+      - role_id
+      type: object
+    Users_SaaS_Role_Update_List_Object_roles_inner:
+      properties:
+        role_external_id:
+          type: string
+        role_external_label:
+          type: string
+      required:
+      - role_external_id
+      type: object
+    User_assigned_SaaS_available_contracts_inner:
+      properties:
+        contract_id:
+          type: string
+        contract_name:
+          type: string
+        contract_type:
+          type: string
+        has_free_license_keys:
+          type: boolean
+      required:
+      - contract_id
+      - contract_name
+      - contract_type
+      - has_free_license_keys
+      type: object
+    Connector_run_logs_portion_details_objects:
+      properties:
+        updated:
+          type: integer
+        added:
+          type: integer
+        failed:
+          type: integer
+        skipped:
+          type: integer
+        unchanged:
+          type: integer
+        canceled:
+          type: integer
+        processing:
+          type: integer
+      type: object
+    Connector_run_logs_portion_details_logs:
+      properties:
+        Fatal Error:
+          items:
+            type: string
+          type: array
+        updated:
+          items:
+            type: string
+          type: array
+        added:
+          items:
+            type: string
+          type: array
+        failed:
+          items:
+            type: string
+          type: array
+        skipped:
+          items:
+            type: string
+          type: array
+        unchanged:
+          items:
+            type: string
+          type: array
+        canceled:
+          items:
+            type: string
+          type: array
+        processing:
+          items:
+            type: string
+          type: array
+      type: object
+    Connector_run_logs_portion_details_file_attachment:
+      nullable: true
+      properties:
+        filename:
+          type: string
+        url:
+          type: string
+      type: object
+  securitySchemes:
+    basic_auth:
+      scheme: basic
+      type: http
+    api_key:
+      in: query
+      name: api_key
+      type: apiKey

@@ -1,0 +1,4125 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "External API",
+        "version": "3.0.3",
+        "description": "## Date type fields\nAPI endpoints expected date in UTC\u00b10:00 timezone. Timezones in ISO8601 format will be ignored. API endpoints support date in two formats (one of): ISO8601 ('YYYY-MM-DDTHH:mm:SSZ') or Unix Timestamp (seconds count since January 1st, 1970 at UTC).\n\n## Dropdown fields\nSome fields are configured as dropdown fields with a dedicated list of values within Oomnitza. You can review the list of available dropdown values within the customization page in Oomnitza. In case you want to be able to post any data into these fields, you should switch them to dropdown without value within the customization page.\n"
+    },
+    "paths": {
+        "/api/v3/accessories": {
+            "get": {
+                "description": "Get records list",
+                "tags": [
+                    "Accessories"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sortby"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/accessories_list_response/get/200"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create record",
+                "tags": [
+                    "Accessories"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Accessory"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/accessories_list_response/post/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/accessories/{ident}": {
+            "get": {
+                "description": "Get record details",
+                "tags": [
+                    "Accessories"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/accessories_detail_response/get/200"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edit record details",
+                "tags": [
+                    "Accessories"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Accessory"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/accessories_detail_response/get/200"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete record",
+                "tags": [
+                    "Accessories"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/accessories_detail_response/get/200"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/accessories/{ident}/changes-history": {
+            "get": {
+                "description": "Get history changes list",
+                "tags": [
+                    "Accessories"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/accessories/savedsearches": {
+            "get": {
+                "description": "Get saved searches list",
+                "tags": [
+                    "Accessories"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/accessories/savedsearches/{ident}": {
+            "get": {
+                "description": "Get saved search details",
+                "tags": [
+                    "Accessories"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/activities": {
+            "get": {
+                "description": "Get a list of records",
+                "tags": [
+                    "Activities"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/assets": {
+            "get": {
+                "description": "Get records list",
+                "tags": [
+                    "Assets"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sortby"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/assets_list_response/get/200"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create record",
+                "tags": [
+                    "Assets"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Asset"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/assets_list_response/post/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/assets/{ident}": {
+            "get": {
+                "description": "Get record details",
+                "tags": [
+                    "Assets"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/assets_detail_response/get/200"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edit record details",
+                "tags": [
+                    "Assets"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Asset"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/assets_detail_response/get/200"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete record",
+                "tags": [
+                    "Assets"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/assets_detail_response/get/200"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/assets/{ident}/changes-history": {
+            "get": {
+                "description": "Get history changes list",
+                "tags": [
+                    "Assets"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/assets/{ident}/software": {
+            "get": {
+                "description": "Get software list",
+                "tags": [
+                    "Assets"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/assets_detail_software_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/assets/savedsearches": {
+            "get": {
+                "description": "Get saved searches list",
+                "tags": [
+                    "Assets"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/assets/savedsearches/{ident}": {
+            "get": {
+                "description": "Get saved search details",
+                "tags": [
+                    "Assets"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/contracts": {
+            "get": {
+                "description": "Get records list",
+                "tags": [
+                    "Contracts"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sortby"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/contracts_list_response/get/200"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create record",
+                "tags": [
+                    "Contracts"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Contract"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/contracts_list_response/post/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/contracts/{ident}": {
+            "get": {
+                "description": "Get record details",
+                "tags": [
+                    "Contracts"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/contracts_detail_response/get/200"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edit record details",
+                "tags": [
+                    "Contracts"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Contract"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/contracts_detail_response/get/200"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete record",
+                "tags": [
+                    "Contracts"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/contracts_detail_response/get/200"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/contracts/{ident}/changes-history": {
+            "get": {
+                "description": "Get history changes list",
+                "tags": [
+                    "Contracts"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/contracts/savedsearches": {
+            "get": {
+                "description": "Get saved searches list",
+                "tags": [
+                    "Contracts"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/contracts/savedsearches/{ident}": {
+            "get": {
+                "description": "Get saved search details",
+                "tags": [
+                    "Contracts"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/custom_objects": {
+            "get": {
+                "description": "Get Custom Objects list",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_objects_list/get/200"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            },
+            "post": {
+                "description": "Create Custom Object",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Custom Object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_objects_list/post/201"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            }
+        },
+        "/api/v3/custom_objects/{ident}": {
+            "get": {
+                "description": "Get Custom Object details",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_objects_list/post/201"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            },
+            "patch": {
+                "description": "Edit Custom Object details",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Custom Object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_objects_list/post/201"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            },
+            "delete": {
+                "description": "Delete Custom Object",
+                "tags": [
+                    "Custom Objects"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_objects_list/post/201"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/custom_objects/{ident}/records": {
+            "get": {
+                "description": "Get Custom Object Records list",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_object_records_list/get/200"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            },
+            "post": {
+                "description": "Create Custom Object Record",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Custom Object Record"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_object_records_detail/get/200"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/custom_objects/{ident}/records/{custom_object_record_id}": {
+            "get": {
+                "description": "Get Custom Object Record details",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_object_records_detail/get/200"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            },
+            "patch": {
+                "description": "Edit Custom Object Record details",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Custom Object Record"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_object_records_detail/get/200"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            },
+            "delete": {
+                "description": "Delete Custom Object Record",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/custom_object_records_detail/get/200"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                },
+                {
+                    "$ref": "#/components/parameters/custom_object_record_id"
+                }
+            ]
+        },
+        "/api/v3/custom_objects/{ident}/records/{custom_object_record_id}/changes-history": {
+            "get": {
+                "description": "Get history changes list",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    },
+                    {
+                        "$ref": "#/components/parameters/custom_object_record_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                },
+                "tags": [
+                    "Custom Objects"
+                ]
+            }
+        },
+        "/api/v3/locations": {
+            "get": {
+                "description": "Get records list",
+                "tags": [
+                    "Locations"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sortby"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/locations_list_response/get/200"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create record",
+                "tags": [
+                    "Locations"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Location"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/locations_list_response/post/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/locations/{ident}": {
+            "get": {
+                "description": "Get record details",
+                "tags": [
+                    "Locations"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/locations_detail_response/get/200"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edit record details",
+                "tags": [
+                    "Locations"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Location"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/locations_detail_response/get/200"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete record",
+                "tags": [
+                    "Locations"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/locations_detail_response/get/200"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/locations/{ident}/changes-history": {
+            "get": {
+                "description": "Get history changes list",
+                "tags": [
+                    "Locations"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/locations/savedsearches": {
+            "get": {
+                "description": "Get saved searches list",
+                "tags": [
+                    "Locations"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/locations/savedsearches/{ident}": {
+            "get": {
+                "description": "Get saved search details",
+                "tags": [
+                    "Locations"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/saas": {
+            "get": {
+                "description": "Get SaaS list",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sortby"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_list/get/200"
+                    }
+                },
+                "tags": [
+                    "SaaS"
+                ]
+            },
+            "post": {
+                "description": "Create SaaS",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaaS"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_list/post/201"
+                    }
+                },
+                "tags": [
+                    "SaaS"
+                ]
+            }
+        },
+        "/api/v3/saas/{ident}": {
+            "get": {
+                "description": "Get SaaS details",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_detail_response/get/200"
+                    }
+                },
+                "tags": [
+                    "SaaS"
+                ]
+            },
+            "patch": {
+                "description": "Edit SaaS details",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaaS"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_detail_response/get/200"
+                    }
+                },
+                "tags": [
+                    "SaaS"
+                ]
+            },
+            "delete": {
+                "description": "Delete SaaS",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_detail_response/get/200"
+                    }
+                },
+                "tags": [
+                    "SaaS"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/saas/{ident}/changes-history": {
+            "get": {
+                "description": "Get history changes list",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                },
+                "tags": [
+                    "SaaS"
+                ]
+            }
+        },
+        "/api/v3/saas/savedsearches": {
+            "get": {
+                "description": "Get saved searches list",
+                "tags": [
+                    "SaaS"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/saas/savedsearches/{ident}": {
+            "get": {
+                "description": "Get saved search details",
+                "tags": [
+                    "SaaS"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/saas_users": {
+            "get": {
+                "description": "Get Users list assigned to the SaaS",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    },
+                    {
+                        "$ref": "#/components/parameters/text"
+                    },
+                    {
+                        "$ref": "#/components/parameters/roles"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_users_list/get/200"
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            }
+        },
+        "/api/v3/saas_users/activate": {
+            "patch": {
+                "description": "Activate Users in the SaaS",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "saas_user_ids": [
+                                    "saas_user_id_1",
+                                    "saas_user_id_2",
+                                    "saas_user_id_3"
+                                ]
+                            },
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "saas_user_ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "saas_user_id": "saas_user_id_1",
+                                        "error": null
+                                    },
+                                    {
+                                        "saas_user_id": "saas_user_id_2",
+                                        "error": "Smth bad has happend"
+                                    },
+                                    {
+                                        "saas_user_id": "saas_user_id_3",
+                                        "error": null
+                                    }
+                                ],
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "saas_user_id": {
+                                                "type": "string"
+                                            },
+                                            "error": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            }
+        },
+        "/api/v3/saas_users/deactivate": {
+            "patch": {
+                "description": "Deactivate Users in the SaaS",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "saas_user_ids": [
+                                    "saas_user_id_1",
+                                    "saas_user_id_2",
+                                    "saas_user_id_3"
+                                ]
+                            },
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "saas_user_ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "saas_user_id": "saas_user_id_1",
+                                        "error": null
+                                    },
+                                    {
+                                        "saas_user_id": "saas_user_id_2",
+                                        "error": "Smth bad has happend"
+                                    },
+                                    {
+                                        "saas_user_id": "saas_user_id_3",
+                                        "error": null
+                                    }
+                                ],
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "saas_user_id": {
+                                                "type": "string"
+                                            },
+                                            "error": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            }
+        },
+        "/api/v3/saas/{ident}/users": {
+            "get": {
+                "description": "Get Users list assigned to the SaaS",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/last_visit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/roles"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_users_list/get/200"
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "post": {
+                "description": "Bulk assign Users to the SaaS",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaaS Users Object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_users_list/post/200"
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/saas/{ident}/users/{user_id}": {
+            "post": {
+                "description": "Store user_external_id of user in external saas system",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaaS User Manage Object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_user_manage_object/post/200"
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                },
+                {
+                    "$ref": "#/components/parameters/user_id"
+                }
+            ]
+        },
+        "/api/v3/saas/{ident}/roles": {
+            "get": {
+                "description": "Gets SaaS Roles list",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_roles_list/get/200"
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "post": {
+                "description": "Create SaaS Role",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaaS Create Role Object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "$ref": "#/components/responses/saas_roles_list/post/201"
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/saas/{ident}/roles/{saas_role_id}": {
+            "patch": {
+                "description": "Update SaaS Role",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SaaS Edit Role Object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/saas_roles_detail/patch/200"
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "delete": {
+                "description": "Delete SaaS Role and Users relations",
+                "responses": {
+                    "204": {
+                        "$ref": "#/components/responses/saas_roles_detail/delete/204"
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                },
+                {
+                    "$ref": "#/components/parameters/saas_role_id"
+                }
+            ]
+        },
+        "/api/v3/saas/{ident}/roles/users": {
+            "post": {
+                "description": "Assign Users to the SaaS Roles",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/users_saas_roles_manage/post/200"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Users SaaS Roles List Object"
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "patch": {
+                "description": "Assign users to the SaaS Roles. Overwrites the current list of the User's roles in this certain SaaS. If new Role values come in the list than new SaaSRole records will be created.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/users_saas_roles_manage/post/200"
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Users SaaS Role Update List Object"
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "delete": {
+                "description": "Unassign users from the SaaS Roles",
+                "responses": {
+                    "204": {
+                        "$ref": "#/components/responses/users_saas_roles_manage/delete/204"
+                    }
+                },
+                "tags": [
+                    "SaaS Users"
+                ]
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/software": {
+            "get": {
+                "description": "Get records list",
+                "tags": [
+                    "Software"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sortby"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/software_list_response/get/200"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create record",
+                "tags": [
+                    "Software"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Software"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/software_list_response/post/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/software/{ident}": {
+            "get": {
+                "description": "Get record details",
+                "tags": [
+                    "Software"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/software_detail_response/get/200"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edit record details",
+                "tags": [
+                    "Software"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Software"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/software_detail_response/get/200"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete record",
+                "tags": [
+                    "Software"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/software_detail_response/get/200"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/software/{ident}/changes-history": {
+            "get": {
+                "description": "Get history changes list",
+                "tags": [
+                    "Software"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/software/{ident}/assets": {
+            "get": {
+                "description": "Get history changes list",
+                "tags": [
+                    "Software"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/assets_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/software/savedsearches": {
+            "get": {
+                "description": "Get saved searches list",
+                "tags": [
+                    "Software"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/software/savedsearches/{ident}": {
+            "get": {
+                "description": "Get saved search details",
+                "tags": [
+                    "Software"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/stockrooms": {
+            "get": {
+                "description": "Get records list",
+                "tags": [
+                    "Stockrooms"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sortby"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/stockrooms_list_response/get/200"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create record",
+                "tags": [
+                    "Stockrooms"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Stockroom"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/stockrooms_list_response/post/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/stockrooms/{ident}": {
+            "get": {
+                "description": "Get record details",
+                "tags": [
+                    "Stockrooms"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/stockrooms_detail_response/get/200"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edit record details",
+                "tags": [
+                    "Stockrooms"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Stockroom"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/stockrooms_detail_response/get/200"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete record",
+                "tags": [
+                    "Stockrooms"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/stockrooms_detail_response/get/200"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/stockrooms/{ident}/changes-history": {
+            "get": {
+                "description": "Get history changes list",
+                "tags": [
+                    "Stockrooms"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/stockrooms/savedsearches": {
+            "get": {
+                "description": "Get saved searches list",
+                "tags": [
+                    "Stockrooms"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/stockrooms/savedsearches/{ident}": {
+            "get": {
+                "description": "Get saved search details",
+                "tags": [
+                    "Stockrooms"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/subscriptions": {
+            "get": {
+                "description": "Get records list",
+                "tags": [
+                    "Subscriptions"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create record",
+                "tags": [
+                    "Subscriptions"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/alternative_id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/subscriptions/{ident}": {
+            "get": {
+                "description": "Get record details",
+                "tags": [
+                    "Subscriptions"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edit record details",
+                "tags": [
+                    "Subscriptions"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete record",
+                "tags": [
+                    "Subscriptions"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/users": {
+            "get": {
+                "description": "Get records list",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sortby"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/users_list_response/get/200"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create record",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/users_list_response/post/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/users/{ident}": {
+            "get": {
+                "description": "Get record details",
+                "tags": [
+                    "Users"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/users_detail_response/get/200"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Edit record details",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ignore_meta_restriction"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/users_detail_response/get/200"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Delete record",
+                "tags": [
+                    "Users"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/users_detail_response/get/200"
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "$ref": "#/components/parameters/ident"
+                }
+            ]
+        },
+        "/api/v3/users/{ident}/assets": {
+            "get": {
+                "description": "Get assets list",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/users_detail_assets_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/users/{ident}/changes-history": {
+            "get": {
+                "description": "Get history changes list",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/users/{ident}/profile_settings": {
+            "get": {
+                "description": "Get profile settings list",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/users/{ident}/software": {
+            "get": {
+                "description": "Get Software list",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/assets_detail_software_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/users/{ident}/software/saas": {
+            "get": {
+                "description": "Get SaaS list",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/users_software_saas_list/get/200"
+                    }
+                },
+                "tags": [
+                    "Users"
+                ]
+            }
+        },
+        "/api/v3/users/savedsearches": {
+            "get": {
+                "description": "Get saved searches list",
+                "tags": [
+                    "Users"
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_list_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/users/savedsearches/{ident}": {
+            "get": {
+                "description": "Get saved search details",
+                "tags": [
+                    "Users"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/empty_detail_response/get/200"
+                    }
+                }
+            }
+        },
+        "/api/v3/connector_run_logs/{ident}": {
+            "get": {
+                "description": "Get run logs list for particular connector.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/connector_run_logs/get/200"
+                    }
+                },
+                "tags": [
+                    "Connector"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip"
+                    },
+                    {
+                        "$ref": "#/components/parameters/sortby"
+                    },
+                    {
+                        "$ref": "#/components/parameters/filter"
+                    },
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ]
+            }
+        },
+        "/api/v3/connector_run_logs/connectors/{ident}": {
+            "get": {
+                "description": "Get details of particular portion of connector run logs.",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/ident"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/connector_run_logs_portion_details/get/200"
+                    }
+                },
+                "tags": [
+                    "Connector"
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Metadata field": {
+                "type": "object",
+                "required": [
+                    "uid",
+                    "unique",
+                    "dropdown_help_text_enabled"
+                ],
+                "properties": {
+                    "internal_id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "uid": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "belongs_to": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "data_type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "subtype": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "length": {
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "editable": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "hardcode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "optional": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "display_order": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "default_value": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "unique": {
+                        "type": "string"
+                    },
+                    "searchhelp": {
+                        "type": "array",
+                        "nullable": true,
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "key",
+                                "value",
+                                "help_text"
+                            ],
+                            "properties": {
+                                "key": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                },
+                                "help_text": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "searchhelp_type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "help_text": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "dependencies": {
+                        "type": "object",
+                        "nullable": true,
+                        "required": [
+                            "{external_id}"
+                        ],
+                        "properties": {
+                            "{external_id}": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "flags": {
+                        "type": "object",
+                        "nullable": true
+                    },
+                    "dropdown_help_text_enabled": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Metadata fields": {
+                "type": "object",
+                "required": [
+                    "{external_id}"
+                ],
+                "properties": {
+                    "{external_id}": {
+                        "$ref": "#/components/schemas/Metadata field"
+                    }
+                }
+            },
+            "Accessory": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "accessory_id": {
+                        "type": "string"
+                    },
+                    "accessory_name": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string"
+                    },
+                    "sku": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "loan_only": {
+                        "type": "boolean"
+                    },
+                    "creation_date": {
+                        "type": "integer"
+                    },
+                    "change_date": {
+                        "type": "integer"
+                    },
+                    "created_by": {
+                        "type": "string"
+                    },
+                    "changed_by": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "type": "string"
+                    },
+                    "uid": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Asset": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "equipment_id": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "creation_date": {
+                        "type": "integer"
+                    },
+                    "change_date": {
+                        "type": "integer"
+                    },
+                    "created_by": {
+                        "type": "string"
+                    },
+                    "changed_by": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "stockroom": {
+                        "type": "string"
+                    },
+                    "assigned_to": {
+                        "type": "string"
+                    },
+                    "tickets": {
+                        "type": "string"
+                    },
+                    "is_parent": {
+                        "type": "boolean"
+                    },
+                    "is_child": {
+                        "type": "boolean"
+                    },
+                    "barcode": {
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "type": "string"
+                    },
+                    "operating_system": {
+                        "type": "string"
+                    },
+                    "asset_type": {
+                        "type": "string"
+                    },
+                    "end_of_life_date": {
+                        "type": "integer"
+                    },
+                    "serial_number": {
+                        "type": "string"
+                    },
+                    "department": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "manufacturer": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "device_name": {
+                        "type": "string"
+                    },
+                    "currently_logged_in_user": {
+                        "type": "string"
+                    },
+                    "ip_address": {
+                        "type": "string"
+                    },
+                    "mac_address": {
+                        "type": "string"
+                    },
+                    "imei__meid": {
+                        "type": "string"
+                    },
+                    "vendor": {
+                        "type": "string"
+                    },
+                    "purchase_date": {
+                        "type": "integer"
+                    },
+                    "po_number": {
+                        "type": "string"
+                    },
+                    "purchase_price": {
+                        "type": "number"
+                    },
+                    "warranty_end_date": {
+                        "type": "integer"
+                    },
+                    "cpu": {
+                        "type": "string"
+                    },
+                    "loan_due_date": {
+                        "type": "integer"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "condition": {
+                        "type": "string"
+                    },
+                    "uid": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Contract": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "contract_name": {
+                        "type": "string"
+                    },
+                    "contract_type": {
+                        "type": "string"
+                    },
+                    "software_id": {
+                        "type": "string"
+                    },
+                    "saas_id": {
+                        "type": "string"
+                    },
+                    "default_saas_contract": {
+                        "type": "boolean"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "payment_schedule": {
+                        "type": "string"
+                    },
+                    "renewal_date": {
+                        "type": "integer"
+                    },
+                    "responsible_person": {
+                        "type": "string"
+                    },
+                    "payment_date": {
+                        "type": "integer"
+                    },
+                    "autorenewal": {
+                        "type": "boolean"
+                    },
+                    "limit_number_of_licenses": {
+                        "type": "boolean"
+                    },
+                    "number_of_licenses": {
+                        "type": "integer"
+                    },
+                    "number_of_seats": {
+                        "type": "integer"
+                    },
+                    "oversubscribe_licenses": {
+                        "type": "boolean"
+                    },
+                    "license_key": {
+                        "type": "string"
+                    },
+                    "calculate_per_user_price": {
+                        "type": "boolean"
+                    },
+                    "change_date": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "changed_by": {
+                        "type": "string"
+                    },
+                    "creation_date": {
+                        "type": "integer"
+                    },
+                    "created_by": {
+                        "type": "string"
+                    },
+                    "licenses_in_use": {
+                        "type": "integer"
+                    },
+                    "contract_id": {
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "type": "string"
+                    },
+                    "uid": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Custom Object": {
+                "type": "object",
+                "required": [
+                    "custom_object_name",
+                    "type"
+                ],
+                "properties": {
+                    "custom_object_name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "is_main_object": {
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "lookup_object",
+                            "stand_alone_object"
+                        ]
+                    }
+                }
+            },
+            "Custom Object Record": {
+                "type": "object",
+                "required": [
+                    "custom_object_record_name"
+                ],
+                "properties": {
+                    "custom_object_record_name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Location": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "location_id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "number"
+                    },
+                    "longitude": {
+                        "type": "number"
+                    },
+                    "change_date": {
+                        "type": "integer"
+                    },
+                    "changed_by": {
+                        "type": "string"
+                    },
+                    "creation_date": {
+                        "type": "integer"
+                    },
+                    "created_by": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "type": "string"
+                    },
+                    "uid": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SaaS": {
+                "type": "object",
+                "required": [
+                    "saas_name",
+                    "source",
+                    "hash",
+                    "ignored",
+                    "changedate",
+                    "changedby",
+                    "creationdate",
+                    "createdby",
+                    "linked",
+                    "link_key"
+                ],
+                "properties": {
+                    "saas_name": {
+                        "type": "string"
+                    },
+                    "linked": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string"
+                    },
+                    "usage_statistic": {
+                        "type": "string"
+                    },
+                    "usage_history": {
+                        "type": "string"
+                    },
+                    "link_key": {
+                        "type": "string"
+                    },
+                    "publisher": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string"
+                    },
+                    "ignored": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "visited": {
+                        "type": "integer"
+                    },
+                    "available_licenses": {
+                        "type": "integer"
+                    },
+                    "annual_spend": {
+                        "type": "number"
+                    },
+                    "renewal_date": {
+                        "type": "string"
+                    },
+                    "changedate": {
+                        "type": "string"
+                    },
+                    "changedby": {
+                        "type": "string"
+                    },
+                    "creationdate": {
+                        "type": "string"
+                    },
+                    "createdby": {
+                        "type": "string"
+                    },
+                    "saas_id": {
+                        "type": "integer"
+                    },
+                    "hash": {
+                        "type": "boolean"
+                    },
+                    "total_licenses": {
+                        "type": "integer"
+                    },
+                    "deleted": {
+                        "type": "string"
+                    },
+                    "uid": {
+                        "type": "integer"
+                    },
+                    "is_inf": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "SaaS User Object": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": [
+                        "user_id",
+                        "assign"
+                    ],
+                    "properties": {
+                        "user_id": {
+                            "type": "string"
+                        },
+                        "assign": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            },
+            "SaaS assigned User": {
+                "type": "object",
+                "required": [
+                    "email",
+                    "full_name",
+                    "last_visit",
+                    "old_usage",
+                    "user_id",
+                    "username",
+                    "media_url",
+                    "contract_id",
+                    "roles",
+                    "user_external_id"
+                ],
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "full_name": {
+                        "type": "string"
+                    },
+                    "last_visit": {
+                        "type": "integer"
+                    },
+                    "old_usage": {
+                        "type": "boolean"
+                    },
+                    "user_id": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "media_url": {
+                        "type": "string"
+                    },
+                    "contract_id": {
+                        "type": "string"
+                    },
+                    "roles": {
+                        "type": "object",
+                        "required": [
+                            "role_id",
+                            "role_external_id",
+                            "role_external_label"
+                        ],
+                        "properties": {
+                            "role_id": {
+                                "type": "string"
+                            },
+                            "role_external_id": {
+                                "type": "string"
+                            },
+                            "role_external_label": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "user_external_id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SaaS Create Role Object": {
+                "type": "object",
+                "properties": {
+                    "role_external_label": {
+                        "type": "string",
+                        "required": true
+                    }
+                }
+            },
+            "SaaS Edit Role Object": {
+                "type": "object",
+                "properties": {
+                    "role_external_label": {
+                        "type": "string",
+                        "required": false
+                    }
+                }
+            },
+            "Users SaaS Roles List Object": {
+                "type": "object",
+                "required": [
+                    "users",
+                    "roles"
+                ],
+                "properties": {
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "Users SaaS Role Update List Object": {
+                "type": "object",
+                "required": [
+                    "users",
+                    "roles"
+                ],
+                "properties": {
+                    "users": {
+                        "type": "string"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "role_external_id"
+                            ],
+                            "properties": {
+                                "role_external_id": {
+                                    "type": "string"
+                                },
+                                "role_external_label": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "SaaS roles": {
+                "type": "object",
+                "properties": {
+                    "role_id": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "saas_id": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "source": {
+                        "type": "integer",
+                        "required": true
+                    },
+                    "role_external_id": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "role_external_label": {
+                        "type": "string",
+                        "required": true
+                    },
+                    "users_count": {
+                        "type": "integer",
+                        "required": true
+                    }
+                }
+            },
+            "SaaS Users Object": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": [
+                        "user_id",
+                        "assign"
+                    ],
+                    "properties": {
+                        "user_id": {
+                            "type": "string"
+                        },
+                        "assign": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            },
+            "SaaS User Manage Object": {
+                "type": "object",
+                "required": [
+                    "user_external_id"
+                ],
+                "properties": {
+                    "user_external_id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Software": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "software_name": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string"
+                    },
+                    "publisher": {
+                        "type": "string"
+                    },
+                    "number_of_seats": {
+                        "type": "integer"
+                    },
+                    "number_of_users": {
+                        "type": "integer"
+                    },
+                    "number_of_assets": {
+                        "type": "integer"
+                    },
+                    "change_date": {
+                        "type": "integer"
+                    },
+                    "changed_by": {
+                        "type": "string"
+                    },
+                    "creation_date": {
+                        "type": "integer"
+                    },
+                    "created_by": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "annual_spend": {
+                        "type": "number"
+                    },
+                    "renewal_date": {
+                        "type": "integer"
+                    },
+                    "hash": {
+                        "type": "string"
+                    },
+                    "sync_key": {
+                        "type": "string"
+                    },
+                    "link_key": {
+                        "type": "string"
+                    },
+                    "software_id": {
+                        "type": "string"
+                    },
+                    "linked": {
+                        "type": "boolean"
+                    },
+                    "ignored": {
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Stockroom": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "stockroom_id": {
+                        "type": "string"
+                    },
+                    "stockroom_name": {
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string"
+                    },
+                    "shipping_address": {
+                        "type": "string"
+                    },
+                    "default_spoc": {
+                        "type": "string"
+                    },
+                    "accessories_min_limit": {
+                        "type": "integer"
+                    },
+                    "accessories_max_limit": {
+                        "type": "integer"
+                    },
+                    "quantity_replenish_by": {
+                        "type": "integer"
+                    },
+                    "loan_period": {
+                        "type": "integer"
+                    },
+                    "show_new_and_used": {
+                        "type": "boolean"
+                    },
+                    "allow_return_not_assigned": {
+                        "type": "boolean"
+                    },
+                    "locked": {
+                        "type": "boolean"
+                    },
+                    "created_by": {
+                        "type": "string"
+                    },
+                    "creation_date": {
+                        "type": "integer"
+                    },
+                    "changed_by": {
+                        "type": "string"
+                    },
+                    "change_date": {
+                        "type": "integer"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "deleted": {
+                        "type": "string"
+                    },
+                    "uid": {
+                        "type": "string"
+                    }
+                }
+            },
+            "User": {
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "full_name": {
+                        "type": "string"
+                    },
+                    "first_name": {
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "suspended": {
+                        "type": "boolean"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "phone_number": {
+                        "type": "string"
+                    },
+                    "position": {
+                        "type": "string"
+                    },
+                    "change_date": {
+                        "type": "integer"
+                    },
+                    "changed_by": {
+                        "type": "string"
+                    },
+                    "creation_date": {
+                        "type": "integer"
+                    },
+                    "created_by": {
+                        "type": "string"
+                    },
+                    "external_id": {
+                        "type": "string"
+                    },
+                    "email_subscription": {
+                        "type": "boolean"
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "integer"
+                    },
+                    "last_login_date": {
+                        "type": "integer"
+                    },
+                    "deleted": {
+                        "type": "string"
+                    },
+                    "uid": {
+                        "type": "string"
+                    },
+                    "user_id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "User assigned SaaS": {
+                "type": "object",
+                "required": [
+                    "assigned_contract_id",
+                    "available_contracts",
+                    "estimated_spend",
+                    "saas_id",
+                    "saas_name",
+                    "roles",
+                    "uid"
+                ],
+                "properties": {
+                    "assigned_contract_id": {
+                        "type": "string"
+                    },
+                    "available_contracts": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "contract_id",
+                                "contract_name",
+                                "contract_type",
+                                "has_free_license_keys"
+                            ],
+                            "properties": {
+                                "contract_id": {
+                                    "type": "string"
+                                },
+                                "contract_name": {
+                                    "type": "string"
+                                },
+                                "contract_type": {
+                                    "type": "string"
+                                },
+                                "has_free_license_keys": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": [
+                                "role_id",
+                                "role_external_id",
+                                "role_external_label"
+                            ],
+                            "properties": {
+                                "role_id": {
+                                    "type": "string"
+                                },
+                                "role_external_id": {
+                                    "type": "string"
+                                },
+                                "role_external_label": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "estimated_spend": {
+                        "type": "integer"
+                    },
+                    "saas_id": {
+                        "type": "string"
+                    },
+                    "saas_name": {
+                        "type": "string"
+                    },
+                    "uid": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Connector run logs": {
+                "type": "object",
+                "required": [
+                    "portion_id",
+                    "portion_correlation_id",
+                    "start_time",
+                    "end_time",
+                    "connector",
+                    "is_media_storage_service",
+                    "status",
+                    "test_run",
+                    "deployment",
+                    "ipv4_address",
+                    "added_records_count",
+                    "updated_records_count",
+                    "skipped_records_count",
+                    "error_logs_count"
+                ],
+                "properties": {
+                    "portion_id": {
+                        "type": "integer"
+                    },
+                    "portion_correlation_id": {
+                        "type": "string"
+                    },
+                    "start_time": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "end_time": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "connector": {
+                        "type": "string"
+                    },
+                    "is_media_storage_service": {
+                        "type": "boolean"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "test_run": {
+                        "type": "boolean"
+                    },
+                    "deployment": {
+                        "type": "string"
+                    },
+                    "ipv4_address": {
+                        "type": "string"
+                    },
+                    "added_records_count": {
+                        "type": "integer"
+                    },
+                    "updated_records_count": {
+                        "type": "integer"
+                    },
+                    "skipped_records_count": {
+                        "type": "integer"
+                    },
+                    "error_logs_count": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Connector run logs portion details": {
+                "type": "object",
+                "required": [
+                    "connector",
+                    "deployment",
+                    "start_time",
+                    "end_time",
+                    "status",
+                    "ipv4_address",
+                    "objects",
+                    "logs",
+                    "file_attachment",
+                    "test_run",
+                    "test_run_payload"
+                ],
+                "properties": {
+                    "connector": {
+                        "type": "string"
+                    },
+                    "deployment": {
+                        "type": "string"
+                    },
+                    "start_time": {
+                        "type": "integer"
+                    },
+                    "end_time": {
+                        "type": "integer"
+                    },
+                    "status": {
+                        "type": "string"
+                    },
+                    "ipv4_address": {
+                        "type": "string"
+                    },
+                    "objects": {
+                        "type": "object",
+                        "properties": {
+                            "updated": {
+                                "type": "integer"
+                            },
+                            "added": {
+                                "type": "integer"
+                            },
+                            "failed": {
+                                "type": "integer"
+                            },
+                            "skipped": {
+                                "type": "integer"
+                            },
+                            "unchanged": {
+                                "type": "integer"
+                            },
+                            "canceled": {
+                                "type": "integer"
+                            },
+                            "processing": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "logs": {
+                        "type": "object",
+                        "properties": {
+                            "Fatal Error": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "updated": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "added": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "failed": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "skipped": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "unchanged": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "canceled": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "processing": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "file_attachment": {
+                        "type": "object",
+                        "nullable": true,
+                        "properties": {
+                            "filename": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "test_run": {
+                        "type": "boolean"
+                    },
+                    "test_run_payload": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "responses": {
+            "empty_list_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "required": [],
+                                        "properties": {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "empty_detail_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "accessories_list_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Accessory"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Accessory"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "accessories_detail_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Accessory"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "assets_list_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Asset"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Asset"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "assets_detail_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Asset"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "assets_detail_software_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Software"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "contracts_list_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Contract"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Contract"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "contracts_detail_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Contract"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "custom_objects_list": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Custom Object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "201": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Custom Object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "custom_object_records_list": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Custom Object Record"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "custom_object_records_detail": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Custom Object Record"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "locations_list_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Location"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "locations_detail_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Location"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "saas_list": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaaS"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "201": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "saas_id"
+                                    ],
+                                    "properties": {
+                                        "saas_id": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "saas_detail_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SaaS"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "users_saas_roles_manage": {
+                "post": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "role_id": {
+                                            "type": "string"
+                                        },
+                                        "user_id": {
+                                            "type": "string"
+                                        },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "description": "Error messages if any. Null if no error happened"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "delete": {
+                    "204": {}
+                }
+            },
+            "saas_roles_detail": {
+                "patch": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SaaS roles"
+                                }
+                            }
+                        }
+                    }
+                },
+                "delete": {
+                    "204": {}
+                }
+            },
+            "saas_roles_list": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaaS roles"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "201": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SaaS roles"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "saas_users_list": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/SaaS assigned User"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "200": {}
+                }
+            },
+            "saas_user_manage_object": {
+                "post": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "user_external_id",
+                                        "errors"
+                                    ],
+                                    "properties": {
+                                        "user_external_id": {
+                                            "type": "string"
+                                        },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "software_list_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Software"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Software"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "software_detail_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Software"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "stockrooms_list_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Stockroom"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Stockroom"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "stockrooms_detail_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Stockroom"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "users_list_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "users_detail_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "users_detail_assets_response": {
+                "get": {
+                    "200": {
+                        "description": "Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Asset"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "users_software_saas_list": {
+                "get": {
+                    "200": {
+                        "description": "SaaS assigned to User",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User assigned SaaS"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "connector_run_logs": {
+                "get": {
+                    "200": {
+                        "description": "Run logs list for particular connector.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Connector run logs"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "connector_run_logs_portion_details": {
+                "get": {
+                    "200": {
+                        "description": "Details of particular portion of connector run logs.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Connector run logs portion details"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "parameters": {
+            "q": {
+                "name": "q",
+                "in": "query",
+                "description": "Text to search in objects",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "object_type": {
+                "name": "object_type",
+                "in": "path",
+                "description": "Type of system object (assets, locations, ...)",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "object_id": {
+                "name": "object_id",
+                "in": "path",
+                "description": "ID of system object (assets, locations, ...)",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "skip": {
+                "name": "skip",
+                "in": "query",
+                "description": "Skip records",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "limit": {
+                "name": "limit",
+                "in": "query",
+                "description": "Limit records",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "text": {
+                "name": "text",
+                "in": "path",
+                "description": "Regular API v3 full text search expression",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "sortby": {
+                "name": "sortby",
+                "in": "query",
+                "description": "Order for results",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "filter": {
+                "name": "filter",
+                "in": "path",
+                "description": "Regular API v3 filter expression",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "ident": {
+                "name": "ident",
+                "in": "path",
+                "description": "ID of system object (assets, locations, ...)",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "ignore_meta_restriction": {
+                "name": "Oomnitza-Ignore-Meta-Restriction",
+                "in": "header",
+                "description": "Used to allow the non-system edit-only field to be updated. Allowed values: 0, 1",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "enum": [
+                        "0",
+                        "1"
+                    ]
+                },
+                "style": "simple"
+            },
+            "alternative_id": {
+                "name": "alternative_id",
+                "in": "query",
+                "description": "The name of the alternative unique field",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "custom_object_record_id": {
+                "name": "custom_object_record_id",
+                "in": "path",
+                "description": "ID of Custom Object Record",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "roles": {
+                "name": "roles",
+                "in": "path",
+                "description": "Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "last_visit": {
+                "name": "last_visit",
+                "in": "path",
+                "description": "Filter by last_visit date",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "user_id": {
+                "name": "user_id",
+                "in": "path",
+                "description": "ID of User",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            },
+            "saas_role_id": {
+                "name": "saas_role_id",
+                "in": "path",
+                "description": "ID of SaaS Role",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "style": "simple"
+            }
+        },
+        "securitySchemes": {
+            "basic_auth": {
+                "type": "http",
+                "scheme": "basic"
+            },
+            "api_key": {
+                "type": "apiKey",
+                "in": "query",
+                "name": "api_key"
+            }
+        },
+        "links": {}
+    },
+    "security": [
+        {
+            "api_key": []
+        },
+        {
+            "basic_auth": []
+        }
+    ]
+}
