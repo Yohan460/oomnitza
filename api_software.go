@@ -127,7 +127,7 @@ func (a *SoftwareApiService) ApiV3SoftwareGetExecute(r ApiApiV3SoftwareGetReques
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -233,7 +233,7 @@ func (a *SoftwareApiService) ApiV3SoftwareIdentAssetsGetExecute(r ApiApiV3Softwa
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -339,7 +339,7 @@ func (a *SoftwareApiService) ApiV3SoftwareIdentChangesHistoryGetExecute(r ApiApi
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -445,7 +445,7 @@ func (a *SoftwareApiService) ApiV3SoftwareIdentDeleteExecute(r ApiApiV3SoftwareI
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -551,7 +551,7 @@ func (a *SoftwareApiService) ApiV3SoftwareIdentGetExecute(r ApiApiV3SoftwareIden
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -675,7 +675,7 @@ func (a *SoftwareApiService) ApiV3SoftwareIdentPatchExecute(r ApiApiV3SoftwareId
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -795,7 +795,7 @@ func (a *SoftwareApiService) ApiV3SoftwarePostExecute(r ApiApiV3SoftwarePostRequ
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -897,7 +897,7 @@ func (a *SoftwareApiService) ApiV3SoftwareSavedsearchesGetExecute(r ApiApiV3Soft
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1003,7 +1003,7 @@ func (a *SoftwareApiService) ApiV3SoftwareSavedsearchesIdentGetExecute(r ApiApiV
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

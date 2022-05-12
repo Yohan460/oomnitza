@@ -97,7 +97,7 @@ func (a *ConnectorApiService) ApiV3ConnectorRunLogsConnectorsIdentGetExecute(r A
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -237,7 +237,7 @@ func (a *ConnectorApiService) ApiV3ConnectorRunLogsIdentGetExecute(r ApiApiV3Con
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

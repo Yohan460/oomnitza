@@ -4108,18 +4108,22 @@
             },
             "api_key": {
                 "type": "apiKey",
-                "in": "query",
-                "name": "api_key"
+                "in": "header",
+                "name": "Authorization2"
             }
         },
         "links": {}
     },
     "security": [
         {
-            "api_key": []
+            "api_key": [
+                "#/components/securitySchemes/api_key"
+            ]
         },
         {
-            "basic_auth": []
+            "basic_auth": [
+                "#/components/securitySchemes/basic_auth"
+            ]
         }
     ]
 }

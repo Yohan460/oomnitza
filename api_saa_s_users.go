@@ -97,7 +97,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentRolesGetExecute(r ApiApiV3SaasIdentR
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -211,7 +211,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentRolesPostExecute(r ApiApiV3SaasIdent
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -321,7 +321,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentRolesSaasRoleIdDeleteExecute(r ApiAp
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -439,7 +439,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentRolesSaasRoleIdPatchExecute(r ApiApi
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -545,7 +545,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentRolesUsersDeleteExecute(r ApiApiV3Sa
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -659,7 +659,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentRolesUsersPatchExecute(r ApiApiV3Saa
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -773,7 +773,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentRolesUsersPostExecute(r ApiApiV3Saas
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -887,7 +887,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentUsersGetExecute(r ApiApiV3SaasIdentU
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1001,7 +1001,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentUsersPostExecute(r ApiApiV3SaasIdent
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1119,7 +1119,7 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentUsersUserIdPostExecute(r ApiApiV3Saa
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1231,7 +1231,7 @@ func (a *SaaSUsersApiService) ApiV3SaasUsersActivatePatchExecute(r ApiApiV3SaasU
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1352,7 +1352,7 @@ func (a *SaaSUsersApiService) ApiV3SaasUsersDeactivatePatchExecute(r ApiApiV3Saa
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1475,7 +1475,7 @@ func (a *SaaSUsersApiService) ApiV3SaasUsersGetExecute(r ApiApiV3SaasUsersGetReq
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

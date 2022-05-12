@@ -92,7 +92,7 @@ func (a *ActivitiesApiService) ApiV3ActivitiesGetExecute(r ApiApiV3ActivitiesGet
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

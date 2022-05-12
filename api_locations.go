@@ -127,7 +127,7 @@ func (a *LocationsApiService) ApiV3LocationsGetExecute(r ApiApiV3LocationsGetReq
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -233,7 +233,7 @@ func (a *LocationsApiService) ApiV3LocationsIdentChangesHistoryGetExecute(r ApiA
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -339,7 +339,7 @@ func (a *LocationsApiService) ApiV3LocationsIdentDeleteExecute(r ApiApiV3Locatio
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -445,7 +445,7 @@ func (a *LocationsApiService) ApiV3LocationsIdentGetExecute(r ApiApiV3LocationsI
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -569,7 +569,7 @@ func (a *LocationsApiService) ApiV3LocationsIdentPatchExecute(r ApiApiV3Location
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -689,7 +689,7 @@ func (a *LocationsApiService) ApiV3LocationsPostExecute(r ApiApiV3LocationsPostR
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -791,7 +791,7 @@ func (a *LocationsApiService) ApiV3LocationsSavedsearchesGetExecute(r ApiApiV3Lo
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -897,7 +897,7 @@ func (a *LocationsApiService) ApiV3LocationsSavedsearchesIdentGetExecute(r ApiAp
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

@@ -127,7 +127,7 @@ func (a *StockroomsApiService) ApiV3StockroomsGetExecute(r ApiApiV3StockroomsGet
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -233,7 +233,7 @@ func (a *StockroomsApiService) ApiV3StockroomsIdentChangesHistoryGetExecute(r Ap
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -339,7 +339,7 @@ func (a *StockroomsApiService) ApiV3StockroomsIdentDeleteExecute(r ApiApiV3Stock
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -445,7 +445,7 @@ func (a *StockroomsApiService) ApiV3StockroomsIdentGetExecute(r ApiApiV3Stockroo
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -569,7 +569,7 @@ func (a *StockroomsApiService) ApiV3StockroomsIdentPatchExecute(r ApiApiV3Stockr
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -689,7 +689,7 @@ func (a *StockroomsApiService) ApiV3StockroomsPostExecute(r ApiApiV3StockroomsPo
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -791,7 +791,7 @@ func (a *StockroomsApiService) ApiV3StockroomsSavedsearchesGetExecute(r ApiApiV3
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -897,7 +897,7 @@ func (a *StockroomsApiService) ApiV3StockroomsSavedsearchesIdentGetExecute(r Api
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
