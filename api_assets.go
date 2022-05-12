@@ -127,7 +127,7 @@ func (a *AssetsApiService) ApiV3AssetsGetExecute(r ApiApiV3AssetsGetRequest) (*h
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -233,7 +233,7 @@ func (a *AssetsApiService) ApiV3AssetsIdentChangesHistoryGetExecute(r ApiApiV3As
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -339,7 +339,7 @@ func (a *AssetsApiService) ApiV3AssetsIdentDeleteExecute(r ApiApiV3AssetsIdentDe
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -445,7 +445,7 @@ func (a *AssetsApiService) ApiV3AssetsIdentGetExecute(r ApiApiV3AssetsIdentGetRe
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -569,7 +569,7 @@ func (a *AssetsApiService) ApiV3AssetsIdentPatchExecute(r ApiApiV3AssetsIdentPat
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -675,7 +675,7 @@ func (a *AssetsApiService) ApiV3AssetsIdentSoftwareGetExecute(r ApiApiV3AssetsId
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -795,7 +795,7 @@ func (a *AssetsApiService) ApiV3AssetsPostExecute(r ApiApiV3AssetsPostRequest) (
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -897,7 +897,7 @@ func (a *AssetsApiService) ApiV3AssetsSavedsearchesGetExecute(r ApiApiV3AssetsSa
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1003,7 +1003,7 @@ func (a *AssetsApiService) ApiV3AssetsSavedsearchesIdentGetExecute(r ApiApiV3Ass
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

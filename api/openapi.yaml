@@ -13,8 +13,10 @@ info:
 servers:
 - url: /
 security:
-- api_key: []
-- basic_auth: []
+- api_key:
+  - '#/components/securitySchemes/api_key'
+- basic_auth:
+  - '#/components/securitySchemes/basic_auth'
 paths:
   /api/v3/accessories:
     get:
@@ -3407,6 +3409,6 @@ components:
       scheme: basic
       type: http
     api_key:
-      in: query
-      name: api_key
+      in: header
+      name: Authorization2
       type: apiKey

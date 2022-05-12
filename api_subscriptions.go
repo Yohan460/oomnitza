@@ -93,7 +93,7 @@ func (a *SubscriptionsApiService) ApiV3SubscriptionsGetExecute(r ApiApiV3Subscri
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -199,7 +199,7 @@ func (a *SubscriptionsApiService) ApiV3SubscriptionsIdentDeleteExecute(r ApiApiV
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -305,7 +305,7 @@ func (a *SubscriptionsApiService) ApiV3SubscriptionsIdentGetExecute(r ApiApiV3Su
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -411,7 +411,7 @@ func (a *SubscriptionsApiService) ApiV3SubscriptionsIdentPatchExecute(r ApiApiV3
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -523,7 +523,7 @@ func (a *SubscriptionsApiService) ApiV3SubscriptionsPostExecute(r ApiApiV3Subscr
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

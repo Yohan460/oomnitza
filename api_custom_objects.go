@@ -93,7 +93,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsGetExecute(r ApiApiV3CustomO
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -199,7 +199,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsIdentDeleteExecute(r ApiApiV
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -305,7 +305,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsIdentGetExecute(r ApiApiV3Cu
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -419,7 +419,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsIdentPatchExecute(r ApiApiV3
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -529,7 +529,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsIdentRecordsCustomObjectReco
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -639,7 +639,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsIdentRecordsCustomObjectReco
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -749,7 +749,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsIdentRecordsCustomObjectReco
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -867,7 +867,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsIdentRecordsCustomObjectReco
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -973,7 +973,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsIdentRecordsGetExecute(r Api
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1087,7 +1087,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsIdentRecordsPostExecute(r Ap
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1197,7 +1197,7 @@ func (a *CustomObjectsApiService) ApiV3CustomObjectsPostExecute(r ApiApiV3Custom
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

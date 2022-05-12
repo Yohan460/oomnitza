@@ -231,10 +231,10 @@ Class | Method | HTTP request | Description
 ### api_key
 
 - **Type**: API key
-- **API key parameter name**: api_key
-- **Location**: URL query string
+- **API key parameter name**: Authorization2
+- **Location**: HTTP header
 
-Note, each API key must be added to a map of `map[string]APIKey` where the key is: api_key and passed in as the auth context for each request.
+Note, each API key must be added to a map of `map[string]APIKey` where the key is: Authorization2 and passed in as the auth context for each request.
 
 
 ### basic_auth

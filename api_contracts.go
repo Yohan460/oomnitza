@@ -127,7 +127,7 @@ func (a *ContractsApiService) ApiV3ContractsGetExecute(r ApiApiV3ContractsGetReq
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -233,7 +233,7 @@ func (a *ContractsApiService) ApiV3ContractsIdentChangesHistoryGetExecute(r ApiA
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -339,7 +339,7 @@ func (a *ContractsApiService) ApiV3ContractsIdentDeleteExecute(r ApiApiV3Contrac
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -445,7 +445,7 @@ func (a *ContractsApiService) ApiV3ContractsIdentGetExecute(r ApiApiV3ContractsI
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -569,7 +569,7 @@ func (a *ContractsApiService) ApiV3ContractsIdentPatchExecute(r ApiApiV3Contract
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -689,7 +689,7 @@ func (a *ContractsApiService) ApiV3ContractsPostExecute(r ApiApiV3ContractsPostR
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -791,7 +791,7 @@ func (a *ContractsApiService) ApiV3ContractsSavedsearchesGetExecute(r ApiApiV3Co
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -897,7 +897,7 @@ func (a *ContractsApiService) ApiV3ContractsSavedsearchesIdentGetExecute(r ApiAp
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

@@ -127,7 +127,7 @@ func (a *AccessoriesApiService) ApiV3AccessoriesGetExecute(r ApiApiV3Accessories
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -233,7 +233,7 @@ func (a *AccessoriesApiService) ApiV3AccessoriesIdentChangesHistoryGetExecute(r 
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -339,7 +339,7 @@ func (a *AccessoriesApiService) ApiV3AccessoriesIdentDeleteExecute(r ApiApiV3Acc
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -445,7 +445,7 @@ func (a *AccessoriesApiService) ApiV3AccessoriesIdentGetExecute(r ApiApiV3Access
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -559,7 +559,7 @@ func (a *AccessoriesApiService) ApiV3AccessoriesIdentPatchExecute(r ApiApiV3Acce
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -679,7 +679,7 @@ func (a *AccessoriesApiService) ApiV3AccessoriesPostExecute(r ApiApiV3Accessorie
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -781,7 +781,7 @@ func (a *AccessoriesApiService) ApiV3AccessoriesSavedsearchesGetExecute(r ApiApi
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -887,7 +887,7 @@ func (a *AccessoriesApiService) ApiV3AccessoriesSavedsearchesIdentGetExecute(r A
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}

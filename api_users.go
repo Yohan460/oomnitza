@@ -127,7 +127,7 @@ func (a *UsersApiService) ApiV3UsersGetExecute(r ApiApiV3UsersGetRequest) (*http
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -233,7 +233,7 @@ func (a *UsersApiService) ApiV3UsersIdentAssetsGetExecute(r ApiApiV3UsersIdentAs
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -339,7 +339,7 @@ func (a *UsersApiService) ApiV3UsersIdentChangesHistoryGetExecute(r ApiApiV3User
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -445,7 +445,7 @@ func (a *UsersApiService) ApiV3UsersIdentDeleteExecute(r ApiApiV3UsersIdentDelet
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -551,7 +551,7 @@ func (a *UsersApiService) ApiV3UsersIdentGetExecute(r ApiApiV3UsersIdentGetReque
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -675,7 +675,7 @@ func (a *UsersApiService) ApiV3UsersIdentPatchExecute(r ApiApiV3UsersIdentPatchR
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -781,7 +781,7 @@ func (a *UsersApiService) ApiV3UsersIdentProfileSettingsGetExecute(r ApiApiV3Use
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -887,7 +887,7 @@ func (a *UsersApiService) ApiV3UsersIdentSoftwareGetExecute(r ApiApiV3UsersIdent
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -993,7 +993,7 @@ func (a *UsersApiService) ApiV3UsersIdentSoftwareSaasGetExecute(r ApiApiV3UsersI
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1113,7 +1113,7 @@ func (a *UsersApiService) ApiV3UsersPostExecute(r ApiApiV3UsersPostRequest) (*ht
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1215,7 +1215,7 @@ func (a *UsersApiService) ApiV3UsersSavedsearchesGetExecute(r ApiApiV3UsersSaved
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
@@ -1321,7 +1321,7 @@ func (a *UsersApiService) ApiV3UsersSavedsearchesIdentGetExecute(r ApiApiV3Users
 				} else {
 					key = apiKey.Key
 				}
-				localVarQueryParams.Add("api_key", key)
+				localVarHeaderParams["Authorization2"] = key
 			}
 		}
 	}
