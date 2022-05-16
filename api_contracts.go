@@ -29,7 +29,7 @@ type ApiApiV3ContractsGetRequest struct {
 	limit *string
 	skip *string
 	sortby *string
-	filter string
+	filter *string
 }
 
 // Limit records
@@ -50,6 +50,12 @@ func (r ApiApiV3ContractsGetRequest) Sortby(sortby string) ApiApiV3ContractsGetR
 	return r
 }
 
+// Regular API v3 filter expression
+func (r ApiApiV3ContractsGetRequest) Filter(filter string) ApiApiV3ContractsGetRequest {
+	r.filter = &filter
+	return r
+}
+
 func (r ApiApiV3ContractsGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiV3ContractsGetExecute(r)
 }
@@ -60,14 +66,12 @@ ApiV3ContractsGet Method for ApiV3ContractsGet
 Get records list
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param filter Regular API v3 filter expression
  @return ApiApiV3ContractsGetRequest
 */
-func (a *ContractsApiService) ApiV3ContractsGet(ctx context.Context, filter string) ApiApiV3ContractsGetRequest {
+func (a *ContractsApiService) ApiV3ContractsGet(ctx context.Context) ApiApiV3ContractsGetRequest {
 	return ApiApiV3ContractsGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		filter: filter,
 	}
 }
 
@@ -85,7 +89,6 @@ func (a *ContractsApiService) ApiV3ContractsGetExecute(r ApiApiV3ContractsGetReq
 	}
 
 	localVarPath := localBasePath + "/api/v3/contracts"
-	localVarPath = strings.Replace(localVarPath, "{"+"filter"+"}", url.PathEscape(parameterToString(r.filter, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -99,6 +102,9 @@ func (a *ContractsApiService) ApiV3ContractsGetExecute(r ApiApiV3ContractsGetReq
 	}
 	if r.sortby != nil {
 		localVarQueryParams.Add("sortby", parameterToString(*r.sortby, ""))
+	}
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

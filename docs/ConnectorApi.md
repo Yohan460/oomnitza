@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## ApiV3ConnectorRunLogsIdentGet
 
-> ApiV3ConnectorRunLogsIdentGet(ctx, filter, ident).Limit(limit).Skip(skip).Sortby(sortby).Execute()
+> ApiV3ConnectorRunLogsIdentGet(ctx, ident).Limit(limit).Skip(skip).Sortby(sortby).Filter(filter).Execute()
 
 
 
@@ -106,7 +106,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ConnectorApi.ApiV3ConnectorRunLogsIdentGet(context.Background(), filter, ident).Limit(limit).Skip(skip).Sortby(sortby).Execute()
+    resp, r, err := apiClient.ConnectorApi.ApiV3ConnectorRunLogsIdentGet(context.Background(), ident).Limit(limit).Skip(skip).Sortby(sortby).Filter(filter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ConnectorApi.ApiV3ConnectorRunLogsIdentGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -120,7 +120,6 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**filter** | **string** | Regular API v3 filter expression | 
 **ident** | **string** | ID of system object (assets, locations, ...) | 
 
 ### Other Parameters
@@ -134,7 +133,7 @@ Name | Type | Description  | Notes
  **limit** | **string** | Limit records | 
  **skip** | **string** | Skip records | 
  **sortby** | **string** | Order for results | 
-
+ **filter** | **string** | Regular API v3 filter expression | 
 
 ### Return type
 

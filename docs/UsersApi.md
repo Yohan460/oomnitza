@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## ApiV3UsersGet
 
-> ApiV3UsersGet(ctx, filter).Limit(limit).Skip(skip).Sortby(sortby).Execute()
+> ApiV3UsersGet(ctx).Limit(limit).Skip(skip).Sortby(sortby).Filter(filter).Execute()
 
 
 
@@ -47,7 +47,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UsersApi.ApiV3UsersGet(context.Background(), filter).Limit(limit).Skip(skip).Sortby(sortby).Execute()
+    resp, r, err := apiClient.UsersApi.ApiV3UsersGet(context.Background()).Limit(limit).Skip(skip).Sortby(sortby).Filter(filter).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UsersApi.ApiV3UsersGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,10 +58,6 @@ func main() {
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**filter** | **string** | Regular API v3 filter expression | 
 
 ### Other Parameters
 
@@ -73,7 +69,7 @@ Name | Type | Description  | Notes
  **limit** | **string** | Limit records | 
  **skip** | **string** | Skip records | 
  **sortby** | **string** | Order for results | 
-
+ **filter** | **string** | Regular API v3 filter expression | 
 
 ### Return type
 

@@ -809,8 +809,20 @@ type ApiApiV3SaasIdentUsersGetRequest struct {
 	ctx context.Context
 	ApiService *SaaSUsersApiService
 	ident string
-	lastVisit string
-	roles string
+	lastVisit *string
+	roles *string
+}
+
+// Filter by last_visit date
+func (r ApiApiV3SaasIdentUsersGetRequest) LastVisit(lastVisit string) ApiApiV3SaasIdentUsersGetRequest {
+	r.lastVisit = &lastVisit
+	return r
+}
+
+// Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles
+func (r ApiApiV3SaasIdentUsersGetRequest) Roles(roles string) ApiApiV3SaasIdentUsersGetRequest {
+	r.roles = &roles
+	return r
 }
 
 func (r ApiApiV3SaasIdentUsersGetRequest) Execute() (*http.Response, error) {
@@ -824,17 +836,13 @@ Get Users list assigned to the SaaS
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param ident ID of system object (assets, locations, ...)
- @param lastVisit Filter by last_visit date
- @param roles Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles
  @return ApiApiV3SaasIdentUsersGetRequest
 */
-func (a *SaaSUsersApiService) ApiV3SaasIdentUsersGet(ctx context.Context, ident string, lastVisit string, roles string) ApiApiV3SaasIdentUsersGetRequest {
+func (a *SaaSUsersApiService) ApiV3SaasIdentUsersGet(ctx context.Context, ident string) ApiApiV3SaasIdentUsersGetRequest {
 	return ApiApiV3SaasIdentUsersGetRequest{
 		ApiService: a,
 		ctx: ctx,
 		ident: ident,
-		lastVisit: lastVisit,
-		roles: roles,
 	}
 }
 
@@ -853,13 +861,17 @@ func (a *SaaSUsersApiService) ApiV3SaasIdentUsersGetExecute(r ApiApiV3SaasIdentU
 
 	localVarPath := localBasePath + "/api/v3/saas/{ident}/users"
 	localVarPath = strings.Replace(localVarPath, "{"+"ident"+"}", url.PathEscape(parameterToString(r.ident, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"last_visit"+"}", url.PathEscape(parameterToString(r.lastVisit, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"roles"+"}", url.PathEscape(parameterToString(r.roles, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.lastVisit != nil {
+		localVarQueryParams.Add("last_visit", parameterToString(*r.lastVisit, ""))
+	}
+	if r.roles != nil {
+		localVarQueryParams.Add("roles", parameterToString(*r.roles, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1396,9 +1408,27 @@ func (a *SaaSUsersApiService) ApiV3SaasUsersDeactivatePatchExecute(r ApiApiV3Saa
 type ApiApiV3SaasUsersGetRequest struct {
 	ctx context.Context
 	ApiService *SaaSUsersApiService
-	filter string
-	text string
-	roles string
+	filter *string
+	text *string
+	roles *string
+}
+
+// Regular API v3 filter expression
+func (r ApiApiV3SaasUsersGetRequest) Filter(filter string) ApiApiV3SaasUsersGetRequest {
+	r.filter = &filter
+	return r
+}
+
+// Regular API v3 full text search expression
+func (r ApiApiV3SaasUsersGetRequest) Text(text string) ApiApiV3SaasUsersGetRequest {
+	r.text = &text
+	return r
+}
+
+// Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles
+func (r ApiApiV3SaasUsersGetRequest) Roles(roles string) ApiApiV3SaasUsersGetRequest {
+	r.roles = &roles
+	return r
 }
 
 func (r ApiApiV3SaasUsersGetRequest) Execute() (*http.Response, error) {
@@ -1411,18 +1441,12 @@ ApiV3SaasUsersGet Method for ApiV3SaasUsersGet
 Get Users list assigned to the SaaS
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param filter Regular API v3 filter expression
- @param text Regular API v3 full text search expression
- @param roles Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles
  @return ApiApiV3SaasUsersGetRequest
 */
-func (a *SaaSUsersApiService) ApiV3SaasUsersGet(ctx context.Context, filter string, text string, roles string) ApiApiV3SaasUsersGetRequest {
+func (a *SaaSUsersApiService) ApiV3SaasUsersGet(ctx context.Context) ApiApiV3SaasUsersGetRequest {
 	return ApiApiV3SaasUsersGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		filter: filter,
-		text: text,
-		roles: roles,
 	}
 }
 
@@ -1440,14 +1464,20 @@ func (a *SaaSUsersApiService) ApiV3SaasUsersGetExecute(r ApiApiV3SaasUsersGetReq
 	}
 
 	localVarPath := localBasePath + "/api/v3/saas_users"
-	localVarPath = strings.Replace(localVarPath, "{"+"filter"+"}", url.PathEscape(parameterToString(r.filter, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"text"+"}", url.PathEscape(parameterToString(r.text, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"roles"+"}", url.PathEscape(parameterToString(r.roles, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
+	}
+	if r.text != nil {
+		localVarQueryParams.Add("text", parameterToString(*r.text, ""))
+	}
+	if r.roles != nil {
+		localVarQueryParams.Add("roles", parameterToString(*r.roles, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
