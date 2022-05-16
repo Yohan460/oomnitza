@@ -2067,7 +2067,7 @@
                         "nullable": true
                     },
                     "uid": {
-                        "type": "string"
+                        "type": "integer"
                     },
                     "label": {
                         "type": "string",
@@ -2219,7 +2219,7 @@
                         "type": "string"
                     },
                     "uid": {
-                        "type": "string"
+                        "type": "integer"
                     }
                 }
             },
@@ -2258,10 +2258,10 @@
                         "type": "string"
                     },
                     "is_parent": {
-                        "type": "boolean"
+                        "type": "string"
                     },
                     "is_child": {
-                        "type": "boolean"
+                        "type": "string"
                     },
                     "barcode": {
                         "type": "string"
@@ -2318,7 +2318,7 @@
                         "type": "string"
                     },
                     "purchase_price": {
-                        "type": "number"
+                        "type": "string"
                     },
                     "warranty_end_date": {
                         "type": "integer"
@@ -2336,7 +2336,7 @@
                         "type": "string"
                     },
                     "uid": {
-                        "type": "string"
+                        "type": "integer"
                     }
                 }
             },
@@ -2420,7 +2420,7 @@
                         "type": "string"
                     },
                     "uid": {
-                        "type": "string"
+                        "type": "integer"
                     }
                 }
             },
@@ -2495,7 +2495,7 @@
                         "type": "string"
                     },
                     "uid": {
-                        "type": "string"
+                        "type": "integer"
                     }
                 }
             },
@@ -2926,7 +2926,7 @@
                         "type": "string"
                     },
                     "uid": {
-                        "type": "string"
+                        "type": "integer"
                     }
                 }
             },
@@ -2992,7 +2992,7 @@
                         "type": "string"
                     },
                     "uid": {
-                        "type": "string"
+                        "type": "integer"
                     },
                     "user_id": {
                         "type": "string"

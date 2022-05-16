@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **ChangeDate** | Pointer to **int32** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 **Deleted** | Pointer to **string** |  | [optional] 
-**Uid** | Pointer to **string** |  | [optional] 
+**Uid** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -495,20 +495,20 @@ HasDeleted returns a boolean if a field has been set.
 
 ### GetUid
 
-`func (o *Stockroom) GetUid() string`
+`func (o *Stockroom) GetUid() int32`
 
 GetUid returns the Uid field if non-nil, zero value otherwise.
 
 ### GetUidOk
 
-`func (o *Stockroom) GetUidOk() (*string, bool)`
+`func (o *Stockroom) GetUidOk() (*int32, bool)`
 
 GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUid
 
-`func (o *Stockroom) SetUid(v string)`
+`func (o *Stockroom) SetUid(v int32)`
 
 SetUid sets Uid field to given value.
 

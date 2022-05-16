@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **LicensesInUse** | Pointer to **int32** |  | [optional] 
 **ContractId** | Pointer to **string** |  | [optional] 
 **Deleted** | Pointer to **string** |  | [optional] 
-**Uid** | Pointer to **string** |  | [optional] 
+**Uid** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -677,20 +677,20 @@ HasDeleted returns a boolean if a field has been set.
 
 ### GetUid
 
-`func (o *Contract) GetUid() string`
+`func (o *Contract) GetUid() int32`
 
 GetUid returns the Uid field if non-nil, zero value otherwise.
 
 ### GetUidOk
 
-`func (o *Contract) GetUidOk() (*string, bool)`
+`func (o *Contract) GetUidOk() (*int32, bool)`
 
 GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUid
 
-`func (o *Contract) SetUid(v string)`
+`func (o *Contract) SetUid(v int32)`
 
 SetUid sets Uid field to given value.
 

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **Role** | Pointer to **int32** |  | [optional] 
 **LastLoginDate** | Pointer to **int32** |  | [optional] 
 **Deleted** | Pointer to **string** |  | [optional] 
-**Uid** | Pointer to **string** |  | [optional] 
+**Uid** | Pointer to **int32** |  | [optional] 
 **UserId** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -522,20 +522,20 @@ HasDeleted returns a boolean if a field has been set.
 
 ### GetUid
 
-`func (o *User) GetUid() string`
+`func (o *User) GetUid() int32`
 
 GetUid returns the Uid field if non-nil, zero value otherwise.
 
 ### GetUidOk
 
-`func (o *User) GetUidOk() (*string, bool)`
+`func (o *User) GetUidOk() (*int32, bool)`
 
 GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUid
 
-`func (o *User) SetUid(v string)`
+`func (o *User) SetUid(v int32)`
 
 SetUid sets Uid field to given value.
 

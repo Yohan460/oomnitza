@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ChangedBy** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to **string** |  | [optional] 
 **Deleted** | Pointer to **string** |  | [optional] 
-**Uid** | Pointer to **string** |  | [optional] 
+**Uid** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -339,20 +339,20 @@ HasDeleted returns a boolean if a field has been set.
 
 ### GetUid
 
-`func (o *Accessory) GetUid() string`
+`func (o *Accessory) GetUid() int32`
 
 GetUid returns the Uid field if non-nil, zero value otherwise.
 
 ### GetUidOk
 
-`func (o *Accessory) GetUidOk() (*string, bool)`
+`func (o *Accessory) GetUidOk() (*int32, bool)`
 
 GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUid
 
-`func (o *Accessory) SetUid(v string)`
+`func (o *Accessory) SetUid(v int32)`
 
 SetUid sets Uid field to given value.
 

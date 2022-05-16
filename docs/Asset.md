@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **Stockroom** | Pointer to **string** |  | [optional] 
 **AssignedTo** | Pointer to **string** |  | [optional] 
 **Tickets** | Pointer to **string** |  | [optional] 
-**IsParent** | Pointer to **bool** |  | [optional] 
-**IsChild** | Pointer to **bool** |  | [optional] 
+**IsParent** | Pointer to **string** |  | [optional] 
+**IsChild** | Pointer to **string** |  | [optional] 
 **Barcode** | Pointer to **string** |  | [optional] 
 **Deleted** | Pointer to **string** |  | [optional] 
 **OperatingSystem** | Pointer to **string** |  | [optional] 
@@ -34,13 +34,13 @@ Name | Type | Description | Notes
 **Vendor** | Pointer to **string** |  | [optional] 
 **PurchaseDate** | Pointer to **int32** |  | [optional] 
 **PoNumber** | Pointer to **string** |  | [optional] 
-**PurchasePrice** | Pointer to **float32** |  | [optional] 
+**PurchasePrice** | Pointer to **string** |  | [optional] 
 **WarrantyEndDate** | Pointer to **int32** |  | [optional] 
 **Cpu** | Pointer to **string** |  | [optional] 
 **LoanDueDate** | Pointer to **int32** |  | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
 **Condition** | Pointer to **string** |  | [optional] 
-**Uid** | Pointer to **string** |  | [optional] 
+**Uid** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -313,20 +313,20 @@ HasTickets returns a boolean if a field has been set.
 
 ### GetIsParent
 
-`func (o *Asset) GetIsParent() bool`
+`func (o *Asset) GetIsParent() string`
 
 GetIsParent returns the IsParent field if non-nil, zero value otherwise.
 
 ### GetIsParentOk
 
-`func (o *Asset) GetIsParentOk() (*bool, bool)`
+`func (o *Asset) GetIsParentOk() (*string, bool)`
 
 GetIsParentOk returns a tuple with the IsParent field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsParent
 
-`func (o *Asset) SetIsParent(v bool)`
+`func (o *Asset) SetIsParent(v string)`
 
 SetIsParent sets IsParent field to given value.
 
@@ -338,20 +338,20 @@ HasIsParent returns a boolean if a field has been set.
 
 ### GetIsChild
 
-`func (o *Asset) GetIsChild() bool`
+`func (o *Asset) GetIsChild() string`
 
 GetIsChild returns the IsChild field if non-nil, zero value otherwise.
 
 ### GetIsChildOk
 
-`func (o *Asset) GetIsChildOk() (*bool, bool)`
+`func (o *Asset) GetIsChildOk() (*string, bool)`
 
 GetIsChildOk returns a tuple with the IsChild field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsChild
 
-`func (o *Asset) SetIsChild(v bool)`
+`func (o *Asset) SetIsChild(v string)`
 
 SetIsChild sets IsChild field to given value.
 
@@ -813,20 +813,20 @@ HasPoNumber returns a boolean if a field has been set.
 
 ### GetPurchasePrice
 
-`func (o *Asset) GetPurchasePrice() float32`
+`func (o *Asset) GetPurchasePrice() string`
 
 GetPurchasePrice returns the PurchasePrice field if non-nil, zero value otherwise.
 
 ### GetPurchasePriceOk
 
-`func (o *Asset) GetPurchasePriceOk() (*float32, bool)`
+`func (o *Asset) GetPurchasePriceOk() (*string, bool)`
 
 GetPurchasePriceOk returns a tuple with the PurchasePrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPurchasePrice
 
-`func (o *Asset) SetPurchasePrice(v float32)`
+`func (o *Asset) SetPurchasePrice(v string)`
 
 SetPurchasePrice sets PurchasePrice field to given value.
 
@@ -963,20 +963,20 @@ HasCondition returns a boolean if a field has been set.
 
 ### GetUid
 
-`func (o *Asset) GetUid() string`
+`func (o *Asset) GetUid() int32`
 
 GetUid returns the Uid field if non-nil, zero value otherwise.
 
 ### GetUidOk
 
-`func (o *Asset) GetUidOk() (*string, bool)`
+`func (o *Asset) GetUidOk() (*int32, bool)`
 
 GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUid
 
-`func (o *Asset) SetUid(v string)`
+`func (o *Asset) SetUid(v int32)`
 
 SetUid sets Uid field to given value.
 
