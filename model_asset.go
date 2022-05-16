@@ -46,7 +46,7 @@ type Asset struct {
 	Vendor *string `json:"vendor,omitempty"`
 	PurchaseDate *int32 `json:"purchase_date,omitempty"`
 	PoNumber *string `json:"po_number,omitempty"`
-	PurchasePrice *float32 `json:"purchase_price,omitempty"`
+	PurchasePrice *string `json:"purchase_price,omitempty"`
 	WarrantyEndDate *int32 `json:"warranty_end_date,omitempty"`
 	Cpu *string `json:"cpu,omitempty"`
 	LoanDueDate *int32 `json:"loan_due_date,omitempty"`
@@ -1033,9 +1033,9 @@ func (o *Asset) SetPoNumber(v string) {
 }
 
 // GetPurchasePrice returns the PurchasePrice field value if set, zero value otherwise.
-func (o *Asset) GetPurchasePrice() float32 {
+func (o *Asset) GetPurchasePrice() string {
 	if o == nil || o.PurchasePrice == nil {
-		var ret float32
+		var ret string
 		return ret
 	}
 	return *o.PurchasePrice
@@ -1043,7 +1043,7 @@ func (o *Asset) GetPurchasePrice() float32 {
 
 // GetPurchasePriceOk returns a tuple with the PurchasePrice field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Asset) GetPurchasePriceOk() (*float32, bool) {
+func (o *Asset) GetPurchasePriceOk() (*string, bool) {
 	if o == nil || o.PurchasePrice == nil {
 		return nil, false
 	}
@@ -1059,8 +1059,8 @@ func (o *Asset) HasPurchasePrice() bool {
 	return false
 }
 
-// SetPurchasePrice gets a reference to the given float32 and assigns it to the PurchasePrice field.
-func (o *Asset) SetPurchasePrice(v float32) {
+// SetPurchasePrice gets a reference to the given string and assigns it to the PurchasePrice field.
+func (o *Asset) SetPurchasePrice(v string) {
 	o.PurchasePrice = &v
 }
 

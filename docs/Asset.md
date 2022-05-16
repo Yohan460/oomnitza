@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **Vendor** | Pointer to **string** |  | [optional] 
 **PurchaseDate** | Pointer to **int32** |  | [optional] 
 **PoNumber** | Pointer to **string** |  | [optional] 
-**PurchasePrice** | Pointer to **float32** |  | [optional] 
+**PurchasePrice** | Pointer to **string** |  | [optional] 
 **WarrantyEndDate** | Pointer to **int32** |  | [optional] 
 **Cpu** | Pointer to **string** |  | [optional] 
 **LoanDueDate** | Pointer to **int32** |  | [optional] 
@@ -813,20 +813,20 @@ HasPoNumber returns a boolean if a field has been set.
 
 ### GetPurchasePrice
 
-`func (o *Asset) GetPurchasePrice() float32`
+`func (o *Asset) GetPurchasePrice() string`
 
 GetPurchasePrice returns the PurchasePrice field if non-nil, zero value otherwise.
 
 ### GetPurchasePriceOk
 
-`func (o *Asset) GetPurchasePriceOk() (*float32, bool)`
+`func (o *Asset) GetPurchasePriceOk() (*string, bool)`
 
 GetPurchasePriceOk returns a tuple with the PurchasePrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPurchasePrice
 
-`func (o *Asset) SetPurchasePrice(v float32)`
+`func (o *Asset) SetPurchasePrice(v string)`
 
 SetPurchasePrice sets PurchasePrice field to given value.
 

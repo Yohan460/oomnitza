@@ -2318,7 +2318,7 @@
                         "type": "string"
                     },
                     "purchase_price": {
-                        "type": "number"
+                        "type": "string"
                     },
                     "warranty_end_date": {
                         "type": "integer"

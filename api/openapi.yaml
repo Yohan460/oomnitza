@@ -2502,15 +2502,15 @@ components:
         tickets: tickets
         notes: notes
         change_date: 6
-        warranty_end_date: 2
+        warranty_end_date: 5
         imei__meid: imei__meid
         is_parent: is_parent
         is_child: is_child
         manufacturer: manufacturer
-        uid: 9
+        uid: 7
         device_name: device_name
         po_number: po_number
-        loan_due_date: 7
+        loan_due_date: 2
         stockroom: stockroom
         mac_address: mac_address
         vendor: vendor
@@ -2530,7 +2530,7 @@ components:
         condition: condition
         deleted: deleted
         changed_by: changed_by
-        purchase_price: 5.637376656633329
+        purchase_price: purchase_price
         location: location
         end_of_life_date: 1
         purchase_date: 5
@@ -2598,7 +2598,7 @@ components:
         po_number:
           type: string
         purchase_price:
-          type: number
+          type: string
         warranty_end_date:
           type: integer
         cpu:
