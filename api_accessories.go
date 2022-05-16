@@ -29,7 +29,7 @@ type ApiApiV3AccessoriesGetRequest struct {
 	limit *string
 	skip *string
 	sortby *string
-	filter string
+	filter *string
 }
 
 // Limit records
@@ -50,6 +50,12 @@ func (r ApiApiV3AccessoriesGetRequest) Sortby(sortby string) ApiApiV3Accessories
 	return r
 }
 
+// Regular API v3 filter expression
+func (r ApiApiV3AccessoriesGetRequest) Filter(filter string) ApiApiV3AccessoriesGetRequest {
+	r.filter = &filter
+	return r
+}
+
 func (r ApiApiV3AccessoriesGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiV3AccessoriesGetExecute(r)
 }
@@ -60,14 +66,12 @@ ApiV3AccessoriesGet Method for ApiV3AccessoriesGet
 Get records list
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param filter Regular API v3 filter expression
  @return ApiApiV3AccessoriesGetRequest
 */
-func (a *AccessoriesApiService) ApiV3AccessoriesGet(ctx context.Context, filter string) ApiApiV3AccessoriesGetRequest {
+func (a *AccessoriesApiService) ApiV3AccessoriesGet(ctx context.Context) ApiApiV3AccessoriesGetRequest {
 	return ApiApiV3AccessoriesGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		filter: filter,
 	}
 }
 
@@ -85,7 +89,6 @@ func (a *AccessoriesApiService) ApiV3AccessoriesGetExecute(r ApiApiV3Accessories
 	}
 
 	localVarPath := localBasePath + "/api/v3/accessories"
-	localVarPath = strings.Replace(localVarPath, "{"+"filter"+"}", url.PathEscape(parameterToString(r.filter, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -99,6 +102,9 @@ func (a *AccessoriesApiService) ApiV3AccessoriesGetExecute(r ApiApiV3Accessories
 	}
 	if r.sortby != nil {
 		localVarQueryParams.Add("sortby", parameterToString(*r.sortby, ""))
+	}
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

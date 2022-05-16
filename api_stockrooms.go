@@ -29,7 +29,7 @@ type ApiApiV3StockroomsGetRequest struct {
 	limit *string
 	skip *string
 	sortby *string
-	filter string
+	filter *string
 }
 
 // Limit records
@@ -50,6 +50,12 @@ func (r ApiApiV3StockroomsGetRequest) Sortby(sortby string) ApiApiV3StockroomsGe
 	return r
 }
 
+// Regular API v3 filter expression
+func (r ApiApiV3StockroomsGetRequest) Filter(filter string) ApiApiV3StockroomsGetRequest {
+	r.filter = &filter
+	return r
+}
+
 func (r ApiApiV3StockroomsGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiV3StockroomsGetExecute(r)
 }
@@ -60,14 +66,12 @@ ApiV3StockroomsGet Method for ApiV3StockroomsGet
 Get records list
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param filter Regular API v3 filter expression
  @return ApiApiV3StockroomsGetRequest
 */
-func (a *StockroomsApiService) ApiV3StockroomsGet(ctx context.Context, filter string) ApiApiV3StockroomsGetRequest {
+func (a *StockroomsApiService) ApiV3StockroomsGet(ctx context.Context) ApiApiV3StockroomsGetRequest {
 	return ApiApiV3StockroomsGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		filter: filter,
 	}
 }
 
@@ -85,7 +89,6 @@ func (a *StockroomsApiService) ApiV3StockroomsGetExecute(r ApiApiV3StockroomsGet
 	}
 
 	localVarPath := localBasePath + "/api/v3/stockrooms"
-	localVarPath = strings.Replace(localVarPath, "{"+"filter"+"}", url.PathEscape(parameterToString(r.filter, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -99,6 +102,9 @@ func (a *StockroomsApiService) ApiV3StockroomsGetExecute(r ApiApiV3StockroomsGet
 	}
 	if r.sortby != nil {
 		localVarQueryParams.Add("sortby", parameterToString(*r.sortby, ""))
+	}
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

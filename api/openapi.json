@@ -3946,26 +3946,6 @@
                 },
                 "style": "simple"
             },
-            "object_type": {
-                "name": "object_type",
-                "in": "path",
-                "description": "Type of system object (assets, locations, ...)",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                },
-                "style": "simple"
-            },
-            "object_id": {
-                "name": "object_id",
-                "in": "path",
-                "description": "ID of system object (assets, locations, ...)",
-                "required": true,
-                "schema": {
-                    "type": "string"
-                },
-                "style": "simple"
-            },
             "skip": {
                 "name": "skip",
                 "in": "query",
@@ -3988,7 +3968,7 @@
             },
             "text": {
                 "name": "text",
-                "in": "path",
+                "in": "query",
                 "description": "Regular API v3 full text search expression",
                 "required": false,
                 "schema": {
@@ -4008,7 +3988,7 @@
             },
             "filter": {
                 "name": "filter",
-                "in": "path",
+                "in": "query",
                 "description": "Regular API v3 filter expression",
                 "required": false,
                 "schema": {
@@ -4062,7 +4042,7 @@
             },
             "roles": {
                 "name": "roles",
-                "in": "path",
+                "in": "query",
                 "description": "Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles",
                 "required": false,
                 "schema": {
@@ -4072,7 +4052,7 @@
             },
             "last_visit": {
                 "name": "last_visit",
-                "in": "path",
+                "in": "query",
                 "description": "Filter by last_visit date",
                 "required": false,
                 "schema": {

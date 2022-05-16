@@ -136,7 +136,7 @@ type ApiApiV3ConnectorRunLogsIdentGetRequest struct {
 	limit *string
 	skip *string
 	sortby *string
-	filter string
+	filter *string
 }
 
 // Limit records
@@ -157,6 +157,12 @@ func (r ApiApiV3ConnectorRunLogsIdentGetRequest) Sortby(sortby string) ApiApiV3C
 	return r
 }
 
+// Regular API v3 filter expression
+func (r ApiApiV3ConnectorRunLogsIdentGetRequest) Filter(filter string) ApiApiV3ConnectorRunLogsIdentGetRequest {
+	r.filter = &filter
+	return r
+}
+
 func (r ApiApiV3ConnectorRunLogsIdentGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiV3ConnectorRunLogsIdentGetExecute(r)
 }
@@ -167,15 +173,13 @@ ApiV3ConnectorRunLogsIdentGet Method for ApiV3ConnectorRunLogsIdentGet
 Get run logs list for particular connector.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param filter Regular API v3 filter expression
  @param ident ID of system object (assets, locations, ...)
  @return ApiApiV3ConnectorRunLogsIdentGetRequest
 */
-func (a *ConnectorApiService) ApiV3ConnectorRunLogsIdentGet(ctx context.Context, filter string, ident string) ApiApiV3ConnectorRunLogsIdentGetRequest {
+func (a *ConnectorApiService) ApiV3ConnectorRunLogsIdentGet(ctx context.Context, ident string) ApiApiV3ConnectorRunLogsIdentGetRequest {
 	return ApiApiV3ConnectorRunLogsIdentGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		filter: filter,
 		ident: ident,
 	}
 }
@@ -194,7 +198,6 @@ func (a *ConnectorApiService) ApiV3ConnectorRunLogsIdentGetExecute(r ApiApiV3Con
 	}
 
 	localVarPath := localBasePath + "/api/v3/connector_run_logs/{ident}"
-	localVarPath = strings.Replace(localVarPath, "{"+"filter"+"}", url.PathEscape(parameterToString(r.filter, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"ident"+"}", url.PathEscape(parameterToString(r.ident, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -209,6 +212,9 @@ func (a *ConnectorApiService) ApiV3ConnectorRunLogsIdentGetExecute(r ApiApiV3Con
 	}
 	if r.sortby != nil {
 		localVarQueryParams.Add("sortby", parameterToString(*r.sortby, ""))
+	}
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

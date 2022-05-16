@@ -29,7 +29,7 @@ type ApiApiV3AssetsGetRequest struct {
 	limit *string
 	skip *string
 	sortby *string
-	filter string
+	filter *string
 }
 
 // Limit records
@@ -50,6 +50,12 @@ func (r ApiApiV3AssetsGetRequest) Sortby(sortby string) ApiApiV3AssetsGetRequest
 	return r
 }
 
+// Regular API v3 filter expression
+func (r ApiApiV3AssetsGetRequest) Filter(filter string) ApiApiV3AssetsGetRequest {
+	r.filter = &filter
+	return r
+}
+
 func (r ApiApiV3AssetsGetRequest) Execute() (*http.Response, error) {
 	return r.ApiService.ApiV3AssetsGetExecute(r)
 }
@@ -60,14 +66,12 @@ ApiV3AssetsGet Method for ApiV3AssetsGet
 Get records list
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param filter Regular API v3 filter expression
  @return ApiApiV3AssetsGetRequest
 */
-func (a *AssetsApiService) ApiV3AssetsGet(ctx context.Context, filter string) ApiApiV3AssetsGetRequest {
+func (a *AssetsApiService) ApiV3AssetsGet(ctx context.Context) ApiApiV3AssetsGetRequest {
 	return ApiApiV3AssetsGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		filter: filter,
 	}
 }
 
@@ -85,7 +89,6 @@ func (a *AssetsApiService) ApiV3AssetsGetExecute(r ApiApiV3AssetsGetRequest) (*h
 	}
 
 	localVarPath := localBasePath + "/api/v3/assets"
-	localVarPath = strings.Replace(localVarPath, "{"+"filter"+"}", url.PathEscape(parameterToString(r.filter, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -99,6 +102,9 @@ func (a *AssetsApiService) ApiV3AssetsGetExecute(r ApiApiV3AssetsGetRequest) (*h
 	}
 	if r.sortby != nil {
 		localVarQueryParams.Add("sortby", parameterToString(*r.sortby, ""))
+	}
+	if r.filter != nil {
+		localVarQueryParams.Add("filter", parameterToString(*r.filter, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

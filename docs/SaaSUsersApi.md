@@ -512,7 +512,7 @@ Name | Type | Description  | Notes
 
 ## ApiV3SaasIdentUsersGet
 
-> ApiV3SaasIdentUsersGet(ctx, ident, lastVisit, roles).Execute()
+> ApiV3SaasIdentUsersGet(ctx, ident).LastVisit(lastVisit).Roles(roles).Execute()
 
 
 
@@ -537,7 +537,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SaaSUsersApi.ApiV3SaasIdentUsersGet(context.Background(), ident, lastVisit, roles).Execute()
+    resp, r, err := apiClient.SaaSUsersApi.ApiV3SaasIdentUsersGet(context.Background(), ident).LastVisit(lastVisit).Roles(roles).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SaaSUsersApi.ApiV3SaasIdentUsersGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -552,8 +552,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **ident** | **string** | ID of system object (assets, locations, ...) | 
-**lastVisit** | **string** | Filter by last_visit date | 
-**roles** | **string** | Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles | 
 
 ### Other Parameters
 
@@ -563,8 +561,8 @@ Other parameters are passed through a pointer to a apiApiV3SaasIdentUsersGetRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
-
+ **lastVisit** | **string** | Filter by last_visit date | 
+ **roles** | **string** | Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles | 
 
 ### Return type
 
@@ -861,7 +859,7 @@ Name | Type | Description  | Notes
 
 ## ApiV3SaasUsersGet
 
-> ApiV3SaasUsersGet(ctx, filter, text, roles).Execute()
+> ApiV3SaasUsersGet(ctx).Filter(filter).Text(text).Roles(roles).Execute()
 
 
 
@@ -886,7 +884,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SaaSUsersApi.ApiV3SaasUsersGet(context.Background(), filter, text, roles).Execute()
+    resp, r, err := apiClient.SaaSUsersApi.ApiV3SaasUsersGet(context.Background()).Filter(filter).Text(text).Roles(roles).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SaaSUsersApi.ApiV3SaasUsersGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -897,12 +895,6 @@ func main() {
 ### Path Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**filter** | **string** | Regular API v3 filter expression | 
-**text** | **string** | Regular API v3 full text search expression | 
-**roles** | **string** | Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles | 
 
 ### Other Parameters
 
@@ -911,9 +903,9 @@ Other parameters are passed through a pointer to a apiApiV3SaasUsersGetRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
-
-
+ **filter** | **string** | Regular API v3 filter expression | 
+ **text** | **string** | Regular API v3 full text search expression | 
+ **roles** | **string** | Filter by roles. Exclude users where there are no common roles in the list of required roles and list of user roles | 
 
 ### Return type
 

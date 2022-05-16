@@ -48,7 +48,7 @@ paths:
         style: simple
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -219,7 +219,7 @@ paths:
         style: simple
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -410,7 +410,7 @@ paths:
         style: simple
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -799,7 +799,7 @@ paths:
         style: simple
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -974,7 +974,7 @@ paths:
         style: simple
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -1124,7 +1124,7 @@ paths:
       parameters:
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -1132,7 +1132,7 @@ paths:
         style: simple
       - description: Regular API v3 full text search expression
         explode: false
-        in: path
+        in: query
         name: text
         required: false
         schema:
@@ -1141,7 +1141,7 @@ paths:
       - description: Filter by roles. Exclude users where there are no common roles
           in the list of required roles and list of user roles
         explode: false
-        in: path
+        in: query
         name: roles
         required: false
         schema:
@@ -1228,7 +1228,7 @@ paths:
         style: simple
       - description: Filter by last_visit date
         explode: false
-        in: path
+        in: query
         name: last_visit
         required: false
         schema:
@@ -1237,7 +1237,7 @@ paths:
       - description: Filter by roles. Exclude users where there are no common roles
           in the list of required roles and list of user roles
         explode: false
-        in: path
+        in: query
         name: roles
         required: false
         schema:
@@ -1482,7 +1482,7 @@ paths:
         style: simple
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -1673,7 +1673,7 @@ paths:
         style: simple
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -1922,7 +1922,7 @@ paths:
         style: simple
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -2164,7 +2164,7 @@ paths:
         style: simple
       - description: Regular API v3 filter expression
         explode: false
-        in: path
+        in: query
         name: filter
         required: false
         schema:
@@ -2212,24 +2212,6 @@ components:
       schema:
         type: string
       style: simple
-    object_type:
-      description: "Type of system object (assets, locations, ...)"
-      explode: false
-      in: path
-      name: object_type
-      required: true
-      schema:
-        type: string
-      style: simple
-    object_id:
-      description: "ID of system object (assets, locations, ...)"
-      explode: false
-      in: path
-      name: object_id
-      required: true
-      schema:
-        type: string
-      style: simple
     skip:
       description: Skip records
       explode: false
@@ -2251,7 +2233,7 @@ components:
     text:
       description: Regular API v3 full text search expression
       explode: false
-      in: path
+      in: query
       name: text
       required: false
       schema:
@@ -2269,7 +2251,7 @@ components:
     filter:
       description: Regular API v3 filter expression
       explode: false
-      in: path
+      in: query
       name: filter
       required: false
       schema:
@@ -2319,7 +2301,7 @@ components:
       description: Filter by roles. Exclude users where there are no common roles
         in the list of required roles and list of user roles
       explode: false
-      in: path
+      in: query
       name: roles
       required: false
       schema:
@@ -2328,7 +2310,7 @@ components:
     last_visit:
       description: Filter by last_visit date
       explode: false
-      in: path
+      in: query
       name: last_visit
       required: false
       schema:
