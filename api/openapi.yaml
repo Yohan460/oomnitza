@@ -2504,8 +2504,8 @@ components:
         change_date: 6
         warranty_end_date: 2
         imei__meid: imei__meid
-        is_parent: true
-        is_child: true
+        is_parent: is_parent
+        is_child: is_child
         manufacturer: manufacturer
         uid: uid
         device_name: device_name
@@ -2558,9 +2558,9 @@ components:
         tickets:
           type: string
         is_parent:
-          type: boolean
+          type: string
         is_child:
-          type: boolean
+          type: string
         barcode:
           type: string
         deleted:

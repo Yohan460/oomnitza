@@ -2258,10 +2258,10 @@
                         "type": "string"
                     },
                     "is_parent": {
-                        "type": "boolean"
+                        "type": "string"
                     },
                     "is_child": {
-                        "type": "boolean"
+                        "type": "string"
                     },
                     "barcode": {
                         "type": "string"
