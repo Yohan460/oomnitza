@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InternalId** | Pointer to **NullableString** |  | [optional] 
-**Uid** | **string** |  | 
+**Uid** | **int32** |  | 
 **Label** | Pointer to **NullableString** |  | [optional] 
 **BelongsTo** | Pointer to **NullableString** |  | [optional] 
 **DataType** | Pointer to **NullableString** |  | [optional] 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewMetadataField
 
-`func NewMetadataField(uid string, unique string, dropdownHelpTextEnabled string, ) *MetadataField`
+`func NewMetadataField(uid int32, unique string, dropdownHelpTextEnabled string, ) *MetadataField`
 
 NewMetadataField instantiates a new MetadataField object
 This constructor will assign default values to properties that have it defined,
@@ -80,20 +80,20 @@ HasInternalId returns a boolean if a field has been set.
 UnsetInternalId ensures that no value is present for InternalId, not even an explicit nil
 ### GetUid
 
-`func (o *MetadataField) GetUid() string`
+`func (o *MetadataField) GetUid() int32`
 
 GetUid returns the Uid field if non-nil, zero value otherwise.
 
 ### GetUidOk
 
-`func (o *MetadataField) GetUidOk() (*string, bool)`
+`func (o *MetadataField) GetUidOk() (*int32, bool)`
 
 GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUid
 
-`func (o *MetadataField) SetUid(v string)`
+`func (o *MetadataField) SetUid(v int32)`
 
 SetUid sets Uid field to given value.
 

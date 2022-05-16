@@ -28,7 +28,7 @@ type Accessory struct {
 	ChangedBy *string `json:"changed_by,omitempty"`
 	Version *string `json:"version,omitempty"`
 	Deleted *string `json:"deleted,omitempty"`
-	Uid *string `json:"uid,omitempty"`
+	Uid *int32 `json:"uid,omitempty"`
 }
 
 // NewAccessory instantiates a new Accessory object
@@ -433,9 +433,9 @@ func (o *Accessory) SetDeleted(v string) {
 }
 
 // GetUid returns the Uid field value if set, zero value otherwise.
-func (o *Accessory) GetUid() string {
+func (o *Accessory) GetUid() int32 {
 	if o == nil || o.Uid == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 	return *o.Uid
@@ -443,7 +443,7 @@ func (o *Accessory) GetUid() string {
 
 // GetUidOk returns a tuple with the Uid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Accessory) GetUidOk() (*string, bool) {
+func (o *Accessory) GetUidOk() (*int32, bool) {
 	if o == nil || o.Uid == nil {
 		return nil, false
 	}
@@ -459,8 +459,8 @@ func (o *Accessory) HasUid() bool {
 	return false
 }
 
-// SetUid gets a reference to the given string and assigns it to the Uid field.
-func (o *Accessory) SetUid(v string) {
+// SetUid gets a reference to the given int32 and assigns it to the Uid field.
+func (o *Accessory) SetUid(v int32) {
 	o.Uid = &v
 }
 

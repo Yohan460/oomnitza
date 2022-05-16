@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **LoanDueDate** | Pointer to **int32** |  | [optional] 
 **Notes** | Pointer to **string** |  | [optional] 
 **Condition** | Pointer to **string** |  | [optional] 
-**Uid** | Pointer to **string** |  | [optional] 
+**Uid** | Pointer to **int32** |  | [optional] 
 
 ## Methods
 
@@ -963,20 +963,20 @@ HasCondition returns a boolean if a field has been set.
 
 ### GetUid
 
-`func (o *Asset) GetUid() string`
+`func (o *Asset) GetUid() int32`
 
 GetUid returns the Uid field if non-nil, zero value otherwise.
 
 ### GetUidOk
 
-`func (o *Asset) GetUidOk() (*string, bool)`
+`func (o *Asset) GetUidOk() (*int32, bool)`
 
 GetUidOk returns a tuple with the Uid field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUid
 
-`func (o *Asset) SetUid(v string)`
+`func (o *Asset) SetUid(v int32)`
 
 SetUid sets Uid field to given value.
 

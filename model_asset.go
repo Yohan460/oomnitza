@@ -52,7 +52,7 @@ type Asset struct {
 	LoanDueDate *int32 `json:"loan_due_date,omitempty"`
 	Notes *string `json:"notes,omitempty"`
 	Condition *string `json:"condition,omitempty"`
-	Uid *string `json:"uid,omitempty"`
+	Uid *int32 `json:"uid,omitempty"`
 }
 
 // NewAsset instantiates a new Asset object
@@ -1225,9 +1225,9 @@ func (o *Asset) SetCondition(v string) {
 }
 
 // GetUid returns the Uid field value if set, zero value otherwise.
-func (o *Asset) GetUid() string {
+func (o *Asset) GetUid() int32 {
 	if o == nil || o.Uid == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 	return *o.Uid
@@ -1235,7 +1235,7 @@ func (o *Asset) GetUid() string {
 
 // GetUidOk returns a tuple with the Uid field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Asset) GetUidOk() (*string, bool) {
+func (o *Asset) GetUidOk() (*int32, bool) {
 	if o == nil || o.Uid == nil {
 		return nil, false
 	}
@@ -1251,8 +1251,8 @@ func (o *Asset) HasUid() bool {
 	return false
 }
 
-// SetUid gets a reference to the given string and assigns it to the Uid field.
-func (o *Asset) SetUid(v string) {
+// SetUid gets a reference to the given int32 and assigns it to the Uid field.
+func (o *Asset) SetUid(v int32) {
 	o.Uid = &v
 }
 

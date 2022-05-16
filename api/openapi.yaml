@@ -2391,7 +2391,7 @@ components:
           nullable: true
           type: string
         uid:
-          type: string
+          type: integer
         label:
           nullable: true
           type: string
@@ -2461,7 +2461,7 @@ components:
         creation_date: 6
         created_by: created_by
         version: version
-        uid: uid
+        uid: 5
         deleted: deleted
         price: 0.8008281904610115
         changed_by: changed_by
@@ -2495,7 +2495,7 @@ components:
         deleted:
           type: string
         uid:
-          type: string
+          type: integer
       type: object
     Asset:
       example:
@@ -2507,7 +2507,7 @@ components:
         is_parent: is_parent
         is_child: is_child
         manufacturer: manufacturer
-        uid: uid
+        uid: 9
         device_name: device_name
         po_number: po_number
         loan_due_date: 7
@@ -2610,7 +2610,7 @@ components:
         condition:
           type: string
         uid:
-          type: string
+          type: integer
       type: object
     Contract:
       example:
@@ -2619,7 +2619,7 @@ components:
         change_date: 2
         contract_id: contract_id
         software_id: software_id
-        uid: uid
+        uid: 3
         calculate_per_user_price: true
         autorenewal: true
         renewal_date: 6
@@ -2692,7 +2692,7 @@ components:
         deleted:
           type: string
         uid:
-          type: string
+          type: integer
       type: object
     Custom Object:
       properties:
@@ -2720,7 +2720,7 @@ components:
       type: object
     Location:
       example:
-        uid: uid
+        uid: 5
         deleted: deleted
         change_date: 1
         changed_by: changed_by
@@ -2753,7 +2753,7 @@ components:
         deleted:
           type: string
         uid:
-          type: string
+          type: integer
       type: object
     SaaS:
       example:
@@ -3022,7 +3022,7 @@ components:
         created_by: created_by
         version: version
         stockroom_name: stockroom_name
-        uid: uid
+        uid: 7
         default_spoc: default_spoc
         stockroom_id: stockroom_id
         deleted: deleted
@@ -3071,7 +3071,7 @@ components:
         deleted:
           type: string
         uid:
-          type: string
+          type: integer
       type: object
     User:
       example:
@@ -3086,7 +3086,7 @@ components:
         created_by: created_by
         version: version
         suspended: true
-        uid: uid
+        uid: 5
         full_name: full_name
         deleted: deleted
         user_id: user_id
@@ -3136,7 +3136,7 @@ components:
         deleted:
           type: string
         uid:
-          type: string
+          type: integer
         user_id:
           type: string
       type: object
